@@ -38,10 +38,6 @@ class CustumWidgets(QObject):
             )
             self.label.setFont(self.defaultFont)
 
-        if not Layout:
-            self.label.add_Layout(Layout)
-        else:
-            self.label.add_Layout(self.default_layout)
         return self.label
 
     def get_font(self, font_path, font_size=12):
@@ -96,12 +92,14 @@ class CustumWidgets(QObject):
         layout.setContentsMargins(*margins)  # (left, top, right, bottom)
         return layout
 
-    def add_Layout(self):
-        pass
+    def add_Layout(self, widget, layout=None):
+        if layout == None:
+            self.default_layout.addWidget(widget)
+        else:
+            layout.addWidget(widget)
 
 
-# fix layout management and button and input folder
-
+# button and input folder
 Cwidgets = CustumWidgets()
 window = Cwidgets.setupWindow()
 
@@ -110,5 +108,6 @@ main_layout = Cwidgets.create_layout()
 window.setLayout(main_layout)
 
 label = Cwidgets.Label("helloo test Cwidgets", window, (50, 50), 50)
+Cwidgets.add_Layout(label, main_layout)
 window.show()
 sys.exit(Cwidgets.app.exec_())

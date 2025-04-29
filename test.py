@@ -1,5 +1,5 @@
 import sys
-from PySide2.QtWidgets import QApplication, QLabel
+from PySide5.QtWidgets import QApplication, QLabel
 
 app = QApplication(sys.argv)
 label = QLabel("Hello World!")
