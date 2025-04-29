@@ -23,7 +23,9 @@ class CustumWidgets(QObject):
         self.window.setMinimumSize(384, 216)
         return self.window
 
-    def create_layout(self, layout_type="vbox", spacing=10, margins=(10, 10, 10, 10)):
+    def create_layout(
+        self, layout_type="vbox", spacing=10, margins=(10, 10, 10, 10)
+    ):
         if layout_type == "vbox":
             layout = QVBoxLayout()
         elif layout_type == "hbox":
@@ -119,13 +121,28 @@ class CustumWidgets(QObject):
         return button
 
     def open_dialog(self, parent, title="select file", mode="file"):
+        step = 0
+        print(f"open dialog {step}")
+        step += 1
         dialog = QFileDialog(parent)
+        print(f"open dialog {step}")
+        step += 1
         dialog.setWindowTitle(title)
+        print(f"open dialog {step}")
+        step += 1
         if mode == "file":
+            print(f"open dialog {step}")
+            step += 1
             dialog.setFileMode(QFileDialog.ExistingFile)
         elif mode == "directory":
+
+            print(f"open dialog {step}")
+            step += 1
             dialog.setFileMode(QFileDialog.Directory)
         if dialog.exec_():
+
+            print(f"open dialog {step}")
+            step += 1
             return dialog.selectedFiles()[0]
         return ""
 

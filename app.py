@@ -21,12 +21,23 @@ class App:
         
         self.button = self.Cwidgets.create_button(self.window)
         
+        
         def on_button_click():
-            path = self.Cwidgets.open_dialog()
+            
+            step = 0
+            print(f"on button click {step}")
+            step += 1
+            path = self.Cwidgets.open_dialog(self.window)
+            
+            print(f"on button click {step}")
+            step += 1
             if path:
                 self.label.setText(path) 
+                
+            print(f"on button click {step}")
+            step += 1
                            
-        self.button.clicked.connect(on_button_click)
+        self.button.clicked.connect(self.get_file)
         
         self.Cwidgets.add_Layout(self.button, self.main_layout)
         self.Cwidgets.add_Layout(self.label, self.main_layout)
@@ -34,14 +45,23 @@ class App:
         self.window.show()
 
     def get_file(self):
-        path = self.Cwidgets.open_dialog(self.main_layout)
+        path = self.Cwidgets.open_dialog(self.window)
 
         if path:
             saveDict = {"mode": "file",
                         "path": path}
+            
             save_to_json(saveDict, self.jsonTargetPath)
-
-
+            
+    def get_file(self):
+        path = self.Cwidgets.open_dialog(self.window)
+        
+        if path:
+            self.label.setText(path) 
+            saveDict = {"mode": "file",
+            "path": path}
+            save_to_json(saveDict, self.jsonTargetPath)
+            
 if __name__ == "__main__":
     app = App()
     sys.exit(app.Cwidgets.app.exec_())
