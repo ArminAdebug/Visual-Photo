@@ -1,6 +1,6 @@
 from PIL import Image
-from getImgpaths import get_directory_files
-from jsonManager import *
+from source.getImgpaths import get_directory_files
+from source.jsonManager import *
 
 
 jsonTargetPath = "TargetPath.json"

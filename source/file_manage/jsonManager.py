@@ -1,7 +1,4 @@
 import json
-import os
-import numpy as np
-
 
 def save_to_json(data, filename):
     with open(filename, 'w') as json_file:
