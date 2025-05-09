@@ -20,23 +20,7 @@ class App:
             "choice effect", self.window, (150, 350), 50)
         
         self.button = self.Cwidgets.create_button(self.window)
-        
-        
-        def on_button_click():
-            
-            step = 0
-            print(f"on button click {step}")
-            step += 1
-            path = self.Cwidgets.open_dialog(self.window)
-            
-            print(f"on button click {step}")
-            step += 1
-            if path:
-                self.label.setText(path) 
-                
-            print(f"on button click {step}")
-            step += 1
-                           
+                                           
         self.button.clicked.connect(self.get_file)
         
         self.Cwidgets.add_Layout(self.button, self.main_layout)
@@ -54,7 +38,7 @@ class App:
             save_to_json(saveDict, self.jsonTargetPath)
             
     def get_file(self):
-        path = self.Cwidgets.open_dialog(self.window)
+        path = self.Cwidgets.open_dialog(self.window, mode="directory")
         
         if path:
             self.label.setText(path) 

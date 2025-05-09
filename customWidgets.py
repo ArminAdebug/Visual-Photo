@@ -121,29 +121,19 @@ class CustumWidgets(QObject):
         return button
 
     def open_dialog(self, parent, title="select file", mode="file"):
-        step = 0
-        print(f"open dialog {step}")
-        step += 1
         dialog = QFileDialog(parent)
-        print(f"open dialog {step}")
-        step += 1
         dialog.setWindowTitle(title)
-        print(f"open dialog {step}")
-        step += 1
+        
         if mode == "file":
-            print(f"open dialog {step}")
-            step += 1
             dialog.setFileMode(QFileDialog.ExistingFile)
         elif mode == "directory":
 
-            print(f"open dialog {step}")
-            step += 1
             dialog.setFileMode(QFileDialog.Directory)
         if dialog.exec_():
 
-            print(f"open dialog {step}")
-            step += 1
             return dialog.selectedFiles()[0]
+        
         return ""
 
 # button and input folder
+
