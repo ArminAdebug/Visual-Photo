@@ -1,6 +1,6 @@
 import sys
 from PyQt5.QtWidgets import QApplication, QVBoxLayout, QHBoxLayout, QWidget, QGridLayout, QPushButton, QLabel, QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox, QLineEdit, QFileDialog
-from PyQt5.QtGui import QFont, QFontDatabase
+from PyQt5.QtGui import QFont, QFontDatabase, QIcon
 from PyQt5.QtCore import QObject
 from file_manage.FontPaths import *
 
@@ -134,6 +134,4 @@ class CustumWidgets(QObject):
             return dialog.selectedFiles()[0]
         
         return ""
-
-# button and input folder
 

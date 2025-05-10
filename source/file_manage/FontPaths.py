@@ -10,6 +10,6 @@ def _get_font_path(path):
 
 
 defaultFontPath= _get_font_path(r"asset\fonts\Special_Gothic_Condensed_One\SpecialGothicCondensedOne-Regular.ttf")
-boldFontPath= _get_font_path(r"..\..\asset\fonts\Special_Gothic_Expanded_One\SpecialGothicExpandedOne-Regular.ttf")
-warningFontPath = _get_font_path(r"..\..\asset/fonts/Roboto_Mono/RobotoMono-Italic-VariableFont_wght.ttf")
-classicFontPath = _get_font_path(r"..\..\asset\fonts\Playwrite_RO\PlaywriteRO-VariableFont_wght.ttf")
+boldFontPath= _get_font_path(r"asset\fonts\Special_Gothic_Expanded_One\SpecialGothicExpandedOne-Regular.ttf")
+warningFontPath = _get_font_path(r"asset\fonts\Roboto_Mono\RobotoMono-Italic-VariableFont_wght.ttf")
+classicFontPath = _get_font_path(r"asset\fonts\Playwrite_RO\PlaywriteRO-VariableFont_wght.ttf")
