@@ -1,11 +1,8 @@
-from ctypes import Structure, c_long, windll, byref
+import source.display as display
+from source.customWidgets import CustumWidgets
 
-class POINT(Structure):
-    _fields_ = [("x", c_long), ("y", c_long)]
+def main():
+    window = display.Display()
 
-point = POINT()
 
-while True:
-    windll.user32.GetCursorPos(byref(point))
-
-    print(f"Mouse X={point.x}, Y={point.y}")
+main()

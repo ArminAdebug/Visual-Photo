@@ -32,9 +32,10 @@ if __name__ == "__main__":
                 capture_output=True,
                 text=True
             )
-            
+
             if state_run.returncode > 0:
-                basic_msgbox("core.py Encountered an execution failure.", "Error")
+                basic_msgbox(
+                    "core.py Encountered an execution failure.", "Error")
 
         except subprocess.CalledProcessError as e:
             print(f"error, masage: {e.stderr}")

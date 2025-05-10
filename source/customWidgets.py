@@ -123,7 +123,7 @@ class CustumWidgets(QObject):
     def open_dialog(self, parent, title="select file", mode="file"):
         dialog = QFileDialog(parent)
         dialog.setWindowTitle(title)
-        
+
         if mode == "file":
             dialog.setFileMode(QFileDialog.ExistingFile)
         elif mode == "directory":
@@ -132,6 +132,5 @@ class CustumWidgets(QObject):
         if dialog.exec_():
 
             return dialog.selectedFiles()[0]
-        
-        return ""
 
+        return ""
