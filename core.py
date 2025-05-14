@@ -1,8 +1,8 @@
 import source.display as display
-from source.customWidgets import CustumWidgets
+#from source.customWidgets import CustumWidgets
 
-def main():
-    window = display.Display()
+# TODO: add errors on log
 
 
-main()
+window = display.Display()
+

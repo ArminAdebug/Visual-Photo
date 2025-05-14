@@ -1,6 +1,6 @@
 import sys
-from customWidgets import CustumWidgets
-from file_manage.jsonManager import *
+from .customWidgets import CustumWidgets
+from .file_manage.jsonManager import *
 
 import os
 current_dir = os.path.dirname(__file__)
@@ -45,7 +45,6 @@ class Display:
                         "path": path}
             save_to_json(saveDict, self.jsonTargetPath)
 
-d = Display()
 
 
 

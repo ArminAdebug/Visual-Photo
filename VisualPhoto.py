@@ -11,6 +11,7 @@ def basic_msgbox(text, title):
 def check_core(path):
     if not os.path.exists(path):
         print("1")  # TODO: insert with real masage box
+        
         return False
 
     elif not os.access(path, os.X_OK):
