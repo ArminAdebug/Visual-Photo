@@ -5,7 +5,7 @@
         "negate"
     ],
     "paths": [
-        "photo_gray_scale.py",
-        "photo_negate.py"
+        "source\\effect\\photo_gray_scale.py",
+        "source\\effect\\photo_negate.py"
     ]
 }

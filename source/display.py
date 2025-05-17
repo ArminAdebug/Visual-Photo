@@ -6,7 +6,7 @@ import os
 current_dir = os.path.dirname(__file__)
 
 
-def _get_font_path(path):
+def _get_full_path(path):
     file_path = os.path.join(current_dir, "..", path)
     file_path = os.path.abspath(file_path)
     return file_path
@@ -21,7 +21,7 @@ class Display:
 
         self.window.setLayout(self.main_layout)
 
-        self.jsonTargetPath = _get_font_path(r"data\TargetPath.json")
+        self.jsonTargetPath = _get_full_path(r"data\TargetPath.json")
 
         self.label = self.Cwidgets.Label(
             "choice effect", self.window, (150, 350), 50)
