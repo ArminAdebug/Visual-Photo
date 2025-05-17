@@ -1,0 +1,11 @@
+{
+    "version": "1.0.0",
+    "effects": [
+        "gray_scale",
+        "negate"
+    ],
+    "paths": [
+        "photo_gray_scale.py",
+        "photo_negate.py"
+    ]
+}

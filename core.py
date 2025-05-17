@@ -1,8 +1,11 @@
 import source.display as display
-#from source.customWidgets import CustumWidgets
+from source.effect import available_effect
 
 # TODO: add errors on log
 
+def main():
+    window = display.Display()
 
-window = display.Display()
 
+if __name__ == "__main__":
+    main()

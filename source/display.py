@@ -44,7 +44,3 @@ class Display:
             saveDict = {"mode": "file",
                         "path": path}
             save_to_json(saveDict, self.jsonTargetPath)
-
-
-
-
