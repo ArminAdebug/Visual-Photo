@@ -20,13 +20,17 @@ def _open_access(path):
 
 info_path = Path(r"source\effect\effects_info.json").absolute()
 
+
 effects_info = _get_effects_info(info_path)
-effects_list = effects_info["paths"]
 
-effects_filtered1 = filter(_exists, effects_list)
+effect_paths = [Path(path).absolute() for path in effects_info["paths"]]
+effect_names = effects_info["effects"]
 
-effects_filtered2 = filter(_open_access, list(effects_filtered1))
+effects = list(zip(effect_paths, effect_names))
 
-available_effect = list(effects_filtered2).copy()
+effects_filtered1 = [effect for effect in effects if _exists(effect[0])]
+effects_filtered2 = [effect for effect in effects if _open_access(effect[0])]
 
-print(available_effect)
+# TODO: ask memory manage vs style
+
+available_effects = list(effects_filtered2)  # The final result

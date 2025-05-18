@@ -1,5 +1,8 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QVBoxLayout, QHBoxLayout, QWidget, QGridLayout, QPushButton, QLabel, QComboBox, QSpinBox, QDoubleSpinBox, QCheckBox, QLineEdit, QFileDialog
+from PyQt5.QtWidgets import QApplication, QVBoxLayout, QHBoxLayout, QWidget, QGridLayout
+from PyQt5.QtWidgets import QPushButton, QLabel, QComboBox, QSpinBox, QScrollArea
+from PyQt5.QtWidgets import QDoubleSpinBox, QCheckBox, QLineEdit, QFileDialog, QSizePolicy
+
 from PyQt5.QtGui import QFont, QFontDatabase, QIcon
 from PyQt5.QtCore import QObject
 from .file_manage.FontPaths import *
@@ -23,9 +26,7 @@ class CustumWidgets(QObject):
         self.window.setMinimumSize(384, 216)
         return self.window
 
-    def create_layout(
-        self, layout_type="vbox", spacing=10, margins=(10, 10, 10, 10)
-    ):
+    def create_layout(self, layout_type="vbox", spacing=10, margins=(10, 10, 10, 10)):
         if layout_type == "vbox":
             layout = QVBoxLayout()
         elif layout_type == "hbox":
@@ -65,7 +66,7 @@ class CustumWidgets(QObject):
 
     def Label(self, text, parent, pos, size=20, colorcode="#fefff", stylemode="default", Layout=None):
         self.label = QLabel(text, parent)
-        self.label.setGeometry(0, 0, 200, 100)
+        self.label.setGeometry(pos[0], pos[1], 200, 100)
 
         styleCodeKey = {
             "color": f"color: {colorcode};",
@@ -100,10 +101,12 @@ class CustumWidgets(QObject):
 
         return self.input_widget
 
-    def create_button(self, parent, text="Button", style="default", icon=None):
+    def button(self, parent, text="", pos=(0, 0), size=(100, 20), style="default", icon=None):
         button = QPushButton(text, parent)
+        button.move(*pos)
+        button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
+        button.setFixedSize(*size)
 
-        # استایل پیشفرض
         if style == "default":
             button.setStyleSheet("""
                 QPushButton {
@@ -114,7 +117,7 @@ class CustumWidgets(QObject):
                 }
                 QPushButton:hover { background: #2980b9; }
             """)
-        # آیکون (اختیاری)
+
         if icon:
             button.setIcon(QIcon(icon))
 
@@ -126,6 +129,7 @@ class CustumWidgets(QObject):
 
         if mode == "file":
             dialog.setFileMode(QFileDialog.ExistingFile)
+
         elif mode == "directory":
 
             dialog.setFileMode(QFileDialog.Directory)
@@ -134,3 +138,19 @@ class CustumWidgets(QObject):
             return dialog.selectedFiles()[0]
 
         return ""
+
+    def vertical_scroll(self, spacing=10, margins=(30, 0, 30, 0)):
+        scroll = QScrollArea()
+        
+        scroll.verticalScrollBar().setStyleSheet("""
+            QScrollBar::handle { background: #ff0000; } 
+        """)
+        
+        container = QWidget()
+        container_layout = QVBoxLayout(container)
+        container_layout.setSpacing(spacing)
+        container_layout.setContentsMargins(*margins)
+        
+        scroll.setWidget(container)
+        
+        return container_layout
