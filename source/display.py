@@ -3,7 +3,8 @@ import os
 from pathlib import Path
 from .customWidgets import CustumWidgets
 from .file_manage.jsonManager import *
-
+from .run_proccess import RunEffect
+import subprocess
 
 current_dir = os.path.dirname(__file__)
 
@@ -20,22 +21,26 @@ class Display:
         self.window = self.Cwidgets.setupWindow()
 
         self.main_layout = self.Cwidgets.create_layout(layout_type="grid")
-        self.scroll = self.Cwidgets.vertical_scroll()
-        
+
         self.window.setLayout(self.main_layout)
 
         self.jsonTargetPath = _get_full_path(Path(r"data\TargetPath.json"))
 
-        self.label = self.Cwidgets.Label("Choice Effect", self.window, (860, 10), 40)
+        self.label = self.Cwidgets.Label(
+            "Choice Effect", self.window, (900, -60), 40)
 
-        self.button = self.Cwidgets.button(self.window, pos=(860, 0), size=(500, 100))
-        self.button.clicked.connect(lambda: self.get_file("directory"))
+        self.button1 = self.Cwidgets.button(self.window,"1", pos=(860, -50), size=(500, 100))
+        self.button1.clicked.connect(lambda: self.get_file("directory"))
+
+        self.button2 = self.Cwidgets.button(self.window, "2", (860, -50), (500, 100), "#40f411")
+        self.button2.clicked.connect(lambda: self.apply_effect("gray_scale"))
+
+        self.Cwidgets.add_Layout(self.button1, self.main_layout)
+        self.Cwidgets.add_Layout(self.button2, self.main_layout)
+        self.Cwidgets.add_Layout(self.label, self.main_layout)
         
-        self.Cwidgets.add_Layout(self.label, self.main_layout)         
-        self.scroll.addWidget(self.button)        
-      
+
         self.window.show()
-        
 
         sys.exit(self.Cwidgets.app.exec_())
 
@@ -43,9 +48,16 @@ class Display:
         path = self.Cwidgets.open_dialog(self.window, mode=mode)
 
         if path:
-            saveDict = {"mode": "file",
-                        "path": path}
+            saveDict = {"mode": "file","path": path}
             save_to_json(saveDict, self.jsonTargetPath)
 
     def apply_effect(self, name):
         pass
+        #run = RunEffect()
+        
+        #run.run(name)
+        
+
+    
+
+

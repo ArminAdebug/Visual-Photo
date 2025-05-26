@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QDoubleSpinBox, QCheckBox, QLineEdit, QFileDialog, Q
 from PyQt5.QtGui import QFont, QFontDatabase, QIcon
 from PyQt5.QtCore import QObject
 from .file_manage.FontPaths import *
+from matplotlib.colors import hex2color, to_hex
 
 
 class CustumWidgets(QObject):
@@ -101,22 +102,22 @@ class CustumWidgets(QObject):
 
         return self.input_widget
 
-    def button(self, parent, text="", pos=(0, 0), size=(100, 20), style="default", icon=None):
+    def button(self, parent, text="", pos=(0, 0), size=(100, 20), colorcode="#4a3ce8", style="default", icon=None):
         button = QPushButton(text, parent)
         button.move(*pos)
         button.setSizePolicy(QSizePolicy.Fixed, QSizePolicy.Fixed)
         button.setFixedSize(*size)
 
         if style == "default":
-            button.setStyleSheet("""
-                QPushButton {
-                    background: #3498db;
-                    color: white;
+            button.setStyleSheet(f"""
+                QPushButton {{
+                    background: {colorcode};
+                    color: #00000;
                     padding: 10px 20px;
                     border-radius: 5px;
-                }
-                QPushButton:hover { background: #2980b9; }
-            """)
+                }}
+                QPushButton:hover {{ background: {to_hex([max(0, c * 0.8) for c in hex2color(colorcode)])}; }} 
+            """)  # darker
 
         if icon:
             button.setIcon(QIcon(icon))
@@ -141,16 +142,20 @@ class CustumWidgets(QObject):
 
     def vertical_scroll(self, spacing=10, margins=(30, 0, 30, 0)):
         scroll = QScrollArea()
-        
+        scroll.setWidgetResizable(True)
+
         scroll.verticalScrollBar().setStyleSheet("""
             QScrollBar::handle { background: #ff0000; } 
         """)
-        
+
         container = QWidget()
         container_layout = QVBoxLayout(container)
         container_layout.setSpacing(spacing)
         container_layout.setContentsMargins(*margins)
-        
+
         scroll.setWidget(container)
-        
+
         return container_layout
+
+
+# fix scroll , Ui, last handlesteraSC[ZFHOIa[VCP"MvAEIFR){}]]

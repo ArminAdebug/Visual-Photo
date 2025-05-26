@@ -1,17 +1,16 @@
 import subprocess
 import os
 import ctypes
-
+from pathlib import Path
 
 def basic_msgbox(text, title):
-    ctypes.windll.user32.MessageBoxW(
-        0, text, title, 0x40 | 0x1)
+    ctypes.windll.user32.MessageBoxW(0, text, title, 0x40 | 0x1)
 
 
 def check_core(path):
     if not os.path.exists(path):
         print("1")  # TODO: insert with real masage box
-        
+
         return False
 
     elif not os.access(path, os.X_OK):
@@ -21,7 +20,7 @@ def check_core(path):
     return True
 
 
-core_path = "core.py"
+core_path = Path(r"core.py").absolute()
 
 if __name__ == "__main__":
     state_check = check_core(core_path)
