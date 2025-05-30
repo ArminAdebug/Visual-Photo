@@ -1,7 +1,7 @@
 from ..file_manage.jsonManager import load_from_json
 import os
 from pathlib import Path
-import importlib
+import importlib.util
 
 
 def _get_effects_info(info_path):
@@ -19,7 +19,7 @@ def _open_access(path):
     return access
 
 
-def _get_mod_func(*paths):
+def _get_mod_func(paths):
 
     print(paths)
 
@@ -62,7 +62,11 @@ effects_filtered2 = [effect for effect in effects if _open_access(effect[0])]
 effect_filter_listed = list(effects_filtered2)
 
 available_effects = []
-
+#print("1", effect_filter_listed)
+#print("2", map(lambda effect_tuple: effect_tuple, effect_filter_listed))
+#print("3", map(lambda effect_tuple: effect_tuple[0], effect_filter_listed))
+#print("4", list(map(lambda effect_tuple: effect_tuple[0], effect_filter_listed)))
+#
 if _get_mod_func(list(map(lambda effect_tuple: effect_tuple[0], effect_filter_listed))) != None:
     available_effects = list(map(
         lambda effect_tuple: (_get_mod_func(list(map(

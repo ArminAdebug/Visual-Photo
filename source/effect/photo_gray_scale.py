@@ -3,7 +3,7 @@ from ..file_manage.getImgpaths import get_directory_files
 from ..file_manage.jsonManager import *
 from pathlib import Path
 
-def main():
+def gray_scale():
     jsonTargetPath = Path(r"data\TargetPath.json").absolute()
 
     json_data_dict = load_from_json(jsonTargetPath)

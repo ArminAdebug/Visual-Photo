@@ -21,10 +21,15 @@ class CustumWidgets(QObject):
 
         self.default_layout = self.create_layout()
 
-    def setupWindow(self, background=""):
+    def setupWindow(self, title, isFullScreen=True, background=""):
         self.window = QWidget()
         self.window.setGeometry(0, 0, 1920, 1080)
         self.window.setMinimumSize(384, 216)
+        self.window.setWindowTitle(title)
+        
+        if isFullScreen:
+            self.window.showFullScreen()
+        
         return self.window
 
     def create_layout(self, layout_type="vbox", spacing=10, margins=(10, 10, 10, 10)):

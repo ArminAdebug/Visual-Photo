@@ -3,8 +3,8 @@ import os
 from pathlib import Path
 from .customWidgets import CustumWidgets
 from .file_manage.jsonManager import *
-from .run_proccess import RunEffect
-import subprocess
+#from .run_proccess import RunEffect
+from .effect.photo_gray_scale import gray_scale
 
 current_dir = os.path.dirname(__file__)
 
@@ -18,7 +18,7 @@ def _get_full_path(path):
 class Display:
     def __init__(self):
         self.Cwidgets = CustumWidgets()
-        self.window = self.Cwidgets.setupWindow()
+        self.window = self.Cwidgets.setupWindow("Visual Photo")
 
         self.main_layout = self.Cwidgets.create_layout(layout_type="grid")
 
@@ -33,7 +33,7 @@ class Display:
         self.button1.clicked.connect(lambda: self.get_file("directory"))
 
         self.button2 = self.Cwidgets.button(self.window, "2", (860, -50), (500, 100), "#40f411")
-        self.button2.clicked.connect(lambda: self.apply_effect("gray_scale"))
+        self.button2.clicked.connect(gray_scale)
 
         self.Cwidgets.add_Layout(self.button1, self.main_layout)
         self.Cwidgets.add_Layout(self.button2, self.main_layout)
@@ -51,12 +51,6 @@ class Display:
             saveDict = {"mode": "file","path": path}
             save_to_json(saveDict, self.jsonTargetPath)
 
-    def apply_effect(self, name):
-        pass
-        #run = RunEffect()
-        
-        #run.run(name)
-        
 
     
 
