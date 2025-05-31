@@ -8,18 +8,20 @@ available_types = (
     '.spider', '.tiff', '.xbm'
 )
 
-def get_directory_files(path):
-    
-    filepaths = [Path("/".join((path, i))).absolute() for i in os.listdir(path)]
-    #print([h for h in filepaths])
-    #filepaths = list(filter(lambda x: x.is_file(), filepaths))
 
+def get_directory_files(path : Path):
+
+    filepaths = [(Path(path) / i).absolute()
+                 for i in os.listdir(path)]
+    
     filepaths = list(filter(lambda path:
-        path.suffix.lower() in available_types,
-        filepaths))
+                            path.suffix.lower() in available_types,
+                            filepaths))
 
     return filepaths
 
-a = get_directory_files(r"C:/Users/Armin/Documents/Code/Python/Portfolio/image test folder")
+
+a = get_directory_files(
+    r"C:/Users/Armin/Documents/Code/Python/Portfolio/image test folder")
 print("_______")
 print(a)
