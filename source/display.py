@@ -1,7 +1,6 @@
 import sys
 import os
 from pathlib import Path
-from .customWidgets import CustumWidgets
 from .file_manage.jsonManager import *
 #from .run_proccess import RunEffect
 from .effect.photo_gray_scale import gray_scale
@@ -17,7 +16,6 @@ def _get_full_path(path):
 
 class Display:
     def __init__(self):
-        self.Cwidgets = CustumWidgets()
         self.window = self.Cwidgets.setupWindow("Visual Photo")
 
         self.main_layout = self.Cwidgets.create_layout(layout_type="grid")

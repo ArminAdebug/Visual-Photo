@@ -1,17 +1,25 @@
 import os
+from pathlib import Path
 
 available_types = (
-        ".BMP", ".DIB", ".GIF", ".ICNS", ".ICO", ".IM", 
-        ".JPEG", ".JPG", ".MSP", ".PCX", ".PNG", ".PPM", 
-        ".PGM", ".PBM", ".SGI", ".SPIDER", ".TIFF", ".XBM",
-    )
-
+    '.bmp', '.dib', '.gif', '.icns', '.ico',
+    '.im', '.jpeg', '.jpg', '.msp', '.pcx',
+    '.png', '.ppm', '.pgm', '.pbm', '.sgi',
+    '.spider', '.tiff', '.xbm'
+)
 
 def get_directory_files(path):
-    filepaths = list(os.listdir(path))
-    filepaths = filter(lambda x:
-        x[len(x)-4:len(x)] in available_types or
-        x[len(x)-4:len(x)] in [word.lower() for word in available_types],
-        filepaths)
     
+    filepaths = [Path("/".join((path, i))).absolute() for i in os.listdir(path)]
+    #print([h for h in filepaths])
+    #filepaths = list(filter(lambda x: x.is_file(), filepaths))
+
+    filepaths = list(filter(lambda path:
+        path.suffix.lower() in available_types,
+        filepaths))
+
     return filepaths
+
+a = get_directory_files(r"C:/Users/Armin/Documents/Code/Python/Portfolio/image test folder")
+print("_______")
+print(a)

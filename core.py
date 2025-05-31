@@ -5,9 +5,13 @@ from pathlib import Path
 
 ctypes.windll.shell32.ShellExecuteW(None, "runas", "python", str(Path(__file__).parent), None, 1)
 
-def main():
-    window = display.Display()
+from source.effect.photo_blur import blur
 
+blur()
+
+def main():
+    #window = display.Display()
+    pass
 
 if __name__ == "__main__":
     main()

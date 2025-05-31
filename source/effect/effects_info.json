@@ -2,10 +2,12 @@
     "version": "1.0.0",
     "effects": [
         "gray_scale",
-        "negate"
+        "negate",
+        "blur"
     ],
     "paths": [
         "source\\effect\\photo_gray_scale.py",
-        "source\\effect\\photo_negate.py"
+        "source\\effect\\photo_negate.py",
+        "source\\effect\\photo_blur.py"
     ]
 }
