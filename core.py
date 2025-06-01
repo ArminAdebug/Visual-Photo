@@ -1,14 +1,13 @@
-from source.effect.photo_negate import negate
+from source.effect.photo_vintage import thermal
 import source.display as display
-# TODO: add errors on log
+# TODO: add errors on log during app runned
 import ctypes
-from pathlib import Path
 
-ctypes.windll.shell32.ShellExecuteW(
-    None, "runas", "python", str(Path(__file__).parent), None, 1)
+#ctypes.windll.shell32.ShellExecuteW(
+#    None, "runas", "python", str(Path(__file__).parent), None, 1)
 
 
-negate()
+thermal()
 
 
 def main():

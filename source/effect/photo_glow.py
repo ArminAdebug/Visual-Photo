@@ -1,12 +1,10 @@
-from PIL import Image
-from PIL import ImageFilter
-
+from PIL import Image, ImageFilter, ImageChops
 from ..file_manage.getImgpaths import get_directory_files
 from ..file_manage.jsonManager import *
 from pathlib import Path
 
 
-def blur():
+def glow():
     jsonTargetPath = Path(r"data\TargetPath.json").absolute()
 
     json_data_dict = load_from_json(jsonTargetPath)
@@ -14,11 +12,12 @@ def blur():
     if json_data_dict["mode"] == "directory":
         for image in get_directory_files(json_data_dict["path"]):
             imagePIL = Image.open(image)
-
-            imagePIL = imagePIL.filter(ImageFilter.BoxBlur(10))
-
-            savepath = Path.joinpath(
-                image.parent, image.stem + "_blur" + image.suffix)
+            
+            blur = imagePIL.filter(ImageFilter.GaussianBlur(5))
+            imagePIL = ImageChops.add(imagePIL, blur)
+            
+            savepath = Path.joinpath(image.parent, image.stem + "_glow" + image.suffix)
+            
             imagePIL.save(savepath)
 
             print("image", image.name, "saved!")
@@ -27,9 +26,10 @@ def blur():
         image = Path(json_data_dict["path"])
         
         imagePIL = Image.open(image)
-        imagePIL = imagePIL.filter(ImageFilter.BoxBlur(10))
+    
+        blur = imagePIL.filter(ImageFilter.GaussianBlur(5))
+        imagePIL = ImageChops.add(imagePIL, blur)
+        
 
-        savepath = Path.joinpath(
-            image.parent, image.stem + "_blur" + image.suffix)
-
+        savepath = Path.joinpath(image.parent, image.stem + "_glow" + image.suffix)
         imagePIL.save(savepath)

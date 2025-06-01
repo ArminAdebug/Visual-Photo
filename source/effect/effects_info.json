@@ -3,11 +3,17 @@
     "effects": [
         "gray_scale",
         "negate",
-        "blur"
+        "blur",
+        "glow",
+        "mosaic",
+        "vintage"
     ],
     "paths": [
         "source\\effect\\photo_gray_scale.py",
         "source\\effect\\photo_negate.py",
-        "source\\effect\\photo_blur.py"
+        "source\\effect\\photo_blur.py",
+        "source\\effect\\photo_glow.py",
+        "source\\effect\\photo_mosaic.py",
+        "source\\effect\\photo_vintage.py"
     ]
 }

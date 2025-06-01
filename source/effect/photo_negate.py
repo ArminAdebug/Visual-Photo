@@ -1,7 +1,6 @@
 from PIL import Image
 from ..file_manage.getImgpaths import get_directory_files
 from ..file_manage.jsonManager import *
-from ..data_forge.ToArray import Array_from_img_path
 from pathlib import Path
 
 
@@ -11,25 +10,24 @@ def negate():
     json_data_dict = load_from_json(jsonTargetPath)
 
     if json_data_dict["mode"] == "directory":
-        print("debug")
         for image in get_directory_files(json_data_dict["path"]):
             imagePIL = Image.open(image)
             imagePIL = imagePIL.point(lambda p: 255 - p)
 
             savepath = Path.joinpath(
-                image.parent, image.stem + "blur" + image.suffix)
+                image.parent, image.stem + "_negate" + image.suffix)
 
             imagePIL.save(savepath)
 
             print("image", image.name, "saved!")
 
     elif json_data_dict["mode"] == "file":
-        image = json_data_dict["path"]
+        image = Path(json_data_dict["path"])
 
         imagePIL = Image.open(image)
         imagePIL = imagePIL.point(lambda p: 255 - p)
 
         savepath = Path.joinpath(
-            image.parent, image.stem + "blur" + image.suffix)
+            image.parent, image.stem + "_negate" + image.suffix)
 
         imagePIL.save(savepath)
