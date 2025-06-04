@@ -3,11 +3,12 @@ import os
 from pathlib import Path
 import importlib.util
 
-
-def _get_effects_info(info_path):
-    data_dict = load_from_json(info_path)
-    return data_dict
-
+from photo_blur import blur
+from photo_glow import glow
+from photo_edge import edge
+from photo_gray_scale import gray_scale
+from photo_negate import negate
+from photo_vintage import vintage
 
 def _exists(path):
     exs = os.path.exists(path)
@@ -19,15 +20,15 @@ def _open_access(path):
     return access
 
 
-def _get_mod_func(paths):
+def _get_mod_func(data):
 
-    print(paths)
+    print(data)
 
     func_list = []
-    for file in (paths):
+    for file, name in (data):
         try:
             print(file.stem)
-            spec = importlib.util.spec_from_file_location(file, str(file))
+            spec = importlib.util.spec_from_file_location(str(file), str(file))
 
             if spec is None:
                 print(f"error: file <{file}> not find")
@@ -35,13 +36,15 @@ def _get_mod_func(paths):
             try:
                 module = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(module)
-                func_list.append(spec.main)
+                func_list.append(getattr(spec, name))
 
-            except Exception as e:
+            except Exception:
+                print("error unknown")
                 continue
 
         except (ModuleNotFoundError, ImportError):
             # TODO: add error log: module not found, import error, function not found
+            print("module not found")
             continue
 
     return func_list
@@ -49,7 +52,7 @@ def _get_mod_func(paths):
 
 info_path = Path(r"source\effect\effects_info.json").absolute()
 
-effects_info = _get_effects_info(info_path)
+effects_info = load_from_json(info_path)
 
 effect_paths = [Path(path).absolute() for path in effects_info["paths"]]
 effect_names = effects_info["effects"]
@@ -60,23 +63,17 @@ effects_filtered1 = [effect for effect in effects if _exists(effect[0])]
 effects_filtered2 = [effect for effect in effects if _open_access(effect[0])]
 
 effect_filter_listed = list(effects_filtered2)
-
+print("effect_filter_listed", effect_filter_listed)
 available_effects = []
-#print("1", effect_filter_listed)
-#print("2", map(lambda effect_tuple: effect_tuple, effect_filter_listed))
-#print("3", map(lambda effect_tuple: effect_tuple[0], effect_filter_listed))
-#print("4", list(map(lambda effect_tuple: effect_tuple[0], effect_filter_listed)))
-#
-if _get_mod_func(list(map(lambda effect_tuple: effect_tuple[0], effect_filter_listed))) != None:
-    available_effects = list(map(
-        lambda effect_tuple: (_get_mod_func(list(map(
-            lambda effect_tuple: effect_tuple[0], effect_filter_listed))),
-            effect_tuple[1]),
-        effect_filter_listed
-    )
-    )
 
-# TODO: ask memory manage vs style
 
- # available_effects The final result
-print(available_effects)
+if func_resault := _get_mod_func(effect_filter_listed):
+
+
+    # TODO: ask memory manage vs style
+
+    # available_effects The final result
+    print(available_effects)
+
+else:
+    print("error imports")

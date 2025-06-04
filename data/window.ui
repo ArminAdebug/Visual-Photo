@@ -1,0 +1,798 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1092</width>
+    <height>662</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="maximumSize">
+    <size>
+     <width>1092</width>
+     <height>662</height>
+    </size>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
+   </property>
+   <layout class="QGridLayout" name="gridLayout">
+    <property name="sizeConstraint">
+     <enum>QLayout::SetMaximumSize</enum>
+    </property>
+    <item row="1" column="0">
+     <widget class="QFrame" name="main_grid_layout">
+      <property name="maximumSize">
+       <size>
+        <width>1070</width>
+        <height>640</height>
+       </size>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background: #1d1c1d;</string>
+      </property>
+      <layout class="QGridLayout" name="main_layout">
+       <property name="sizeConstraint">
+        <enum>QLayout::SetMaximumSize</enum>
+       </property>
+       <item row="9" column="4" colspan="2">
+        <widget class="QPushButton" name="export_button">
+         <property name="font">
+          <font>
+           <family>Mitra</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+    background-color: #a822ff;
+    border-style: outset;
+    border-width: 6px;
+    border-radius: 15px;
+    border-color: #8e13de;
+    min-width: 10em;
+    padding: 5px; 
+	color: #17022c;
+
+}</string>
+         </property>
+         <property name="text">
+          <string>Export</string>
+         </property>
+        </widget>
+       </item>
+       <item row="8" column="4">
+        <widget class="QCheckBox" name="copy_files_check">
+         <property name="styleSheet">
+          <string notr="true">size:20;</string>
+         </property>
+         <property name="text">
+          <string>CheckBox</string>
+         </property>
+        </widget>
+       </item>
+       <item row="3" column="4" colspan="2">
+        <widget class="QPushButton" name="import_button">
+         <property name="font">
+          <font>
+           <family>Mitra</family>
+           <pointsize>10</pointsize>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">QPushButton{
+    background-color: #a822ff;
+    border-style: outset;
+    border-width: 6px;
+    border-radius: 15px;
+    border-color: #8e13de;
+    min-width: 10em;
+    padding: 5px; 
+	color: #17022c;
+
+}</string>
+         </property>
+         <property name="text">
+          <string>import</string>
+         </property>
+        </widget>
+       </item>
+       <item row="4" column="4" rowspan="2" colspan="2">
+        <widget class="QFrame" name="impor_setting_fream">
+         <property name="styleSheet">
+          <string notr="true">background: #222123;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QFrame" name="image_fream_i">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>10</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #38323d;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QRadioButton" name="image_i">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>98</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Mitra</family>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #17022c;</string>
+           </property>
+           <property name="text">
+            <string>a image</string>
+           </property>
+          </widget>
+         </widget>
+         <widget class="QFrame" name="dir_fream_i">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>61</y>
+            <width>151</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">background: #38323d;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+          </property>
+          <property name="frameShape">
+           <enum>QFrame::StyledPanel</enum>
+          </property>
+          <property name="frameShadow">
+           <enum>QFrame::Raised</enum>
+          </property>
+          <widget class="QRadioButton" name="dir_i">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>10</y>
+             <width>98</width>
+             <height>24</height>
+            </rect>
+           </property>
+           <property name="font">
+            <font>
+             <family>Mitra</family>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="styleSheet">
+            <string notr="true">color: #17022c;</string>
+           </property>
+           <property name="text">
+            <string>a directory</string>
+           </property>
+          </widget>
+         </widget>
+        </widget>
+       </item>
+       <item row="7" column="4" colspan="2">
+        <widget class="QFrame" name="num_file_fream">
+         <property name="styleSheet">
+          <string notr="true">background: #222123;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="num_file_label">
+          <property name="geometry">
+           <rect>
+            <x>0</x>
+            <y>0</y>
+            <width>171</width>
+            <height>44</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>2  Mitra</family>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+        color: #17022c;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item row="6" column="4" colspan="2">
+        <widget class="QFrame" name="path_fream">
+         <property name="styleSheet">
+          <string notr="true">background: #222123;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="path_label">
+          <property name="geometry">
+           <rect>
+            <x>10</x>
+            <y>-10</y>
+            <width>189</width>
+            <height>55</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>2  Mitra</family>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+        color: #17022c;
+}</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item row="1" column="4">
+        <widget class="QFrame" name="input_text_fream">
+         <property name="styleSheet">
+          <string notr="true">background: #222123;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <widget class="QLabel" name="Input_Label">
+          <property name="geometry">
+           <rect>
+            <x>20</x>
+            <y>30</y>
+            <width>101</width>
+            <height>41</height>
+           </rect>
+          </property>
+          <property name="font">
+           <font>
+            <family>2  Mitra</family>
+            <pointsize>20</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">QLabel {
+        color: #17022c;
+}</string>
+          </property>
+          <property name="text">
+           <string>Input</string>
+          </property>
+         </widget>
+        </widget>
+       </item>
+       <item row="1" column="1" colspan="2">
+        <widget class="QFrame" name="logo_fream1">
+         <property name="styleSheet">
+          <string notr="true">background: #222123;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_2">
+          <item row="0" column="0">
+           <widget class="QFrame" name="logo_fream2">
+            <property name="styleSheet">
+             <string notr="true">background: #38323d;
+border-width: 6px;
+border-radius: 15px;
+border-color: #8e13de;</string>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::StyledPanel</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Raised</enum>
+            </property>
+            <widget class="QLabel" name="VISUAL_PHOTO">
+             <property name="geometry">
+              <rect>
+               <x>-180</x>
+               <y>10</y>
+               <width>561</width>
+               <height>51</height>
+              </rect>
+             </property>
+             <property name="font">
+              <font>
+               <family>2  Mitra</family>
+               <pointsize>26</pointsize>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">QLabel {
+    color: #17022c;
+}</string>
+             </property>
+             <property name="text">
+              <string>                    VISUAL PHOTO</string>
+             </property>
+            </widget>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+       <item row="2" column="1" rowspan="8">
+        <widget class="QFrame" name="buttons_frame">
+         <property name="styleSheet">
+          <string notr="true">background: #222123;
+border-width: 6px;
+border-radius: 60px;
+border-color: #8e13de;</string>
+         </property>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
+         </property>
+         <property name="frameShadow">
+          <enum>QFrame::Raised</enum>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_3">
+          <item row="0" column="2">
+           <widget class="QPushButton" name="oil_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Oil Painting</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="2">
+           <widget class="QPushButton" name="glow_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Glow</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="2">
+           <widget class="QPushButton" name="vintage_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Vintage</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="2">
+           <widget class="QPushButton" name="Blur_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Blur</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="2">
+           <widget class="QPushButton" name="gray_scale_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Gray Scale</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="2">
+           <widget class="QPushButton" name="negate_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Negate</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="2">
+           <widget class="QPushButton" name="mosaic_b">
+            <property name="font">
+             <font>
+              <family>Mitra</family>
+              <pointsize>12</pointsize>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">QPushButton {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #790cea, stop:1 #4d0cea);
+    
+  
+    border: 6px solid #4310bd;
+    border-radius: 15px;
+    outline: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), 
+                0 4px 8px rgba(0, 0, 0, 0.4);
+    
+ 
+    color: #17022c;
+    min-width: 10em;
+    padding: 8px 16px;
+}
+
+QPushButton:hover {
+ 
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #7f23ef, stop:1 #0303f1);
+    border-color: #501dcb;
+    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), 
+                0 6px 12px rgba(0, 0, 0, 0.5);
+}
+
+QPushButton:pressed {
+   
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #9b1fe0, stop:1 #7e0dc7);
+    border-color: #7a0fc0;
+    padding: 10px 16px 6px 16px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), 
+                0 2px 4px rgba(0, 0, 0, 0.3);
+}</string>
+            </property>
+            <property name="text">
+             <string>Mosaic</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

@@ -1,19 +1,26 @@
-from source.effect.photo_vintage import thermal
-import source.display as display
-# TODO: add errors on log during app runned
+from source.display_manage import DisplayManage
+from PyQt5.QtWidgets import QApplication
+import sys
 import ctypes
 
-#ctypes.windll.shell32.ShellExecuteW(
+# ctypes.windll.shell32.ShellExecuteW(
 #    None, "runas", "python", str(Path(__file__).parent), None, 1)
 
 
-thermal()
+
+# from source.effect import available_effect
 
 
 def main():
-    # window = display.Display()
-    pass
+    app = QApplication(sys.argv)
+
+    window = DisplayManage()
+    window.show()
+    sys.exit(app.exec_())
 
 
 if __name__ == "__main__":
     main()
+
+
+# TODO: add errors on log during app runned
