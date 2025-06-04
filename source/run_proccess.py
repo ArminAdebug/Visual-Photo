@@ -31,7 +31,6 @@ class RunEffect:
                 vintage()
             case "oil":
                 pass
+            case _:
+                basic_msgbox("effect name unavailable.")
 
-#            else:
-#                basic_msgbox("effect name unavailable.")
-#
