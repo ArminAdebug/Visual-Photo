@@ -7,7 +7,6 @@ import ctypes
 #    None, "runas", "python", str(Path(__file__).parent), None, 1)
 
 
-
 # from source.effect import available_effect
 
 
@@ -15,7 +14,6 @@ def main():
     app = QApplication(sys.argv)
 
     window = DisplayManage()
-    window.show()
     sys.exit(app.exec_())
 
 

@@ -109,7 +109,7 @@
         </widget>
        </item>
        <item row="4" column="4" rowspan="2" colspan="2">
-        <widget class="QFrame" name="impor_setting_fream">
+        <widget class="QFrame" name="import_setting_fream">
          <property name="styleSheet">
           <string notr="true">background: #222123;
 border-width: 6px;

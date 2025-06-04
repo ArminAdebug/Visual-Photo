@@ -13,7 +13,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
+        MainWindow.setObjectName("Visual Photo")
         MainWindow.resize(1092, 662)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setMaximumSize(QtCore.QSize(1092, 662))
@@ -37,16 +37,16 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.export_button.setFont(font)
         self.export_button.setStyleSheet("QPushButton{\n"
-"    background-color: #a822ff;\n"
-"    border-style: outset;\n"
-"    border-width: 6px;\n"
-"    border-radius: 15px;\n"
-"    border-color: #8e13de;\n"
-"    min-width: 10em;\n"
-"    padding: 5px; \n"
-"    color: #17022c;\n"
-"\n"
-"}")
+                                         "    background-color: #a822ff;\n"
+                                         "    border-style: outset;\n"
+                                         "    border-width: 6px;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    border-color: #8e13de;\n"
+                                         "    min-width: 10em;\n"
+                                         "    padding: 5px; \n"
+                                         "    color: #17022c;\n"
+                                         "\n"
+                                         "}")
         self.export_button.setObjectName("export_button")
         self.main_layout.addWidget(self.export_button, 9, 4, 1, 2)
         self.copy_files_check = QtWidgets.QCheckBox(self.main_grid_layout)
@@ -61,32 +61,32 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.import_button.setFont(font)
         self.import_button.setStyleSheet("QPushButton{\n"
-"    background-color: #a822ff;\n"
-"    border-style: outset;\n"
-"    border-width: 6px;\n"
-"    border-radius: 15px;\n"
-"    border-color: #8e13de;\n"
-"    min-width: 10em;\n"
-"    padding: 5px; \n"
-"    color: #17022c;\n"
-"\n"
-"}")
+                                         "    background-color: #a822ff;\n"
+                                         "    border-style: outset;\n"
+                                         "    border-width: 6px;\n"
+                                         "    border-radius: 15px;\n"
+                                         "    border-color: #8e13de;\n"
+                                         "    min-width: 10em;\n"
+                                         "    padding: 5px; \n"
+                                         "    color: #17022c;\n"
+                                         "\n"
+                                         "}")
         self.import_button.setObjectName("import_button")
         self.main_layout.addWidget(self.import_button, 3, 4, 1, 2)
-        self.impor_setting_fream = QtWidgets.QFrame(self.main_grid_layout)
-        self.impor_setting_fream.setStyleSheet("background: #222123;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
-        self.impor_setting_fream.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.impor_setting_fream.setFrameShadow(QtWidgets.QFrame.Raised)
-        self.impor_setting_fream.setObjectName("impor_setting_fream")
-        self.image_fream_i = QtWidgets.QFrame(self.impor_setting_fream)
+        self.import_setting_fream = QtWidgets.QFrame(self.main_grid_layout)
+        self.import_setting_fream.setStyleSheet("background: #222123;\n"
+                                                "border-width: 6px;\n"
+                                                "border-radius: 15px;\n"
+                                                "border-color: #8e13de;")
+        self.import_setting_fream.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.import_setting_fream.setFrameShadow(QtWidgets.QFrame.Raised)
+        self.import_setting_fream.setObjectName("import_setting_fream")
+        self.image_fream_i = QtWidgets.QFrame(self.import_setting_fream)
         self.image_fream_i.setGeometry(QtCore.QRect(10, 10, 151, 41))
         self.image_fream_i.setStyleSheet("background: #38323d;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                         "border-width: 6px;\n"
+                                         "border-radius: 15px;\n"
+                                         "border-color: #8e13de;")
         self.image_fream_i.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.image_fream_i.setFrameShadow(QtWidgets.QFrame.Raised)
         self.image_fream_i.setObjectName("image_fream_i")
@@ -99,12 +99,12 @@ class Ui_MainWindow(object):
         self.image_i.setFont(font)
         self.image_i.setStyleSheet("color: #17022c;")
         self.image_i.setObjectName("image_i")
-        self.dir_fream_i = QtWidgets.QFrame(self.impor_setting_fream)
+        self.dir_fream_i = QtWidgets.QFrame(self.import_setting_fream)
         self.dir_fream_i.setGeometry(QtCore.QRect(10, 61, 151, 41))
         self.dir_fream_i.setStyleSheet("background: #38323d;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                       "border-width: 6px;\n"
+                                       "border-radius: 15px;\n"
+                                       "border-color: #8e13de;")
         self.dir_fream_i.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.dir_fream_i.setFrameShadow(QtWidgets.QFrame.Raised)
         self.dir_fream_i.setObjectName("dir_fream_i")
@@ -117,12 +117,12 @@ class Ui_MainWindow(object):
         self.dir_i.setFont(font)
         self.dir_i.setStyleSheet("color: #17022c;")
         self.dir_i.setObjectName("dir_i")
-        self.main_layout.addWidget(self.impor_setting_fream, 4, 4, 2, 2)
+        self.main_layout.addWidget(self.import_setting_fream, 4, 4, 2, 2)
         self.num_file_fream = QtWidgets.QFrame(self.main_grid_layout)
         self.num_file_fream.setStyleSheet("background: #222123;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                          "border-width: 6px;\n"
+                                          "border-radius: 15px;\n"
+                                          "border-color: #8e13de;")
         self.num_file_fream.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.num_file_fream.setFrameShadow(QtWidgets.QFrame.Raised)
         self.num_file_fream.setObjectName("num_file_fream")
@@ -134,16 +134,16 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.num_file_label.setFont(font)
         self.num_file_label.setStyleSheet("QLabel {\n"
-"        color: #17022c;\n"
-"}")
+                                          "        color: #17022c;\n"
+                                          "}")
         self.num_file_label.setText("")
         self.num_file_label.setObjectName("num_file_label")
         self.main_layout.addWidget(self.num_file_fream, 7, 4, 1, 2)
         self.path_fream = QtWidgets.QFrame(self.main_grid_layout)
         self.path_fream.setStyleSheet("background: #222123;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                      "border-width: 6px;\n"
+                                      "border-radius: 15px;\n"
+                                      "border-color: #8e13de;")
         self.path_fream.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.path_fream.setFrameShadow(QtWidgets.QFrame.Raised)
         self.path_fream.setObjectName("path_fream")
@@ -155,16 +155,16 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.path_label.setFont(font)
         self.path_label.setStyleSheet("QLabel {\n"
-"        color: #17022c;\n"
-"}")
+                                      "        color: #17022c;\n"
+                                      "}")
         self.path_label.setText("")
         self.path_label.setObjectName("path_label")
         self.main_layout.addWidget(self.path_fream, 6, 4, 1, 2)
         self.input_text_fream = QtWidgets.QFrame(self.main_grid_layout)
         self.input_text_fream.setStyleSheet("background: #222123;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                            "border-width: 6px;\n"
+                                            "border-radius: 15px;\n"
+                                            "border-color: #8e13de;")
         self.input_text_fream.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.input_text_fream.setFrameShadow(QtWidgets.QFrame.Raised)
         self.input_text_fream.setObjectName("input_text_fream")
@@ -177,15 +177,15 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.Input_Label.setFont(font)
         self.Input_Label.setStyleSheet("QLabel {\n"
-"        color: #17022c;\n"
-"}")
+                                       "        color: #17022c;\n"
+                                       "}")
         self.Input_Label.setObjectName("Input_Label")
         self.main_layout.addWidget(self.input_text_fream, 1, 4, 1, 1)
         self.logo_fream1 = QtWidgets.QFrame(self.main_grid_layout)
         self.logo_fream1.setStyleSheet("background: #222123;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                       "border-width: 6px;\n"
+                                       "border-radius: 15px;\n"
+                                       "border-color: #8e13de;")
         self.logo_fream1.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.logo_fream1.setFrameShadow(QtWidgets.QFrame.Raised)
         self.logo_fream1.setObjectName("logo_fream1")
@@ -193,9 +193,9 @@ class Ui_MainWindow(object):
         self.gridLayout_2.setObjectName("gridLayout_2")
         self.logo_fream2 = QtWidgets.QFrame(self.logo_fream1)
         self.logo_fream2.setStyleSheet("background: #38323d;\n"
-"border-width: 6px;\n"
-"border-radius: 15px;\n"
-"border-color: #8e13de;")
+                                       "border-width: 6px;\n"
+                                       "border-radius: 15px;\n"
+                                       "border-color: #8e13de;")
         self.logo_fream2.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.logo_fream2.setFrameShadow(QtWidgets.QFrame.Raised)
         self.logo_fream2.setObjectName("logo_fream2")
@@ -208,16 +208,16 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.VISUAL_PHOTO.setFont(font)
         self.VISUAL_PHOTO.setStyleSheet("QLabel {\n"
-"    color: #17022c;\n"
-"}")
+                                        "    color: #17022c;\n"
+                                        "}")
         self.VISUAL_PHOTO.setObjectName("VISUAL_PHOTO")
         self.gridLayout_2.addWidget(self.logo_fream2, 0, 0, 1, 1)
         self.main_layout.addWidget(self.logo_fream1, 1, 1, 1, 2)
         self.buttons_frame = QtWidgets.QFrame(self.main_grid_layout)
         self.buttons_frame.setStyleSheet("background: #222123;\n"
-"border-width: 6px;\n"
-"border-radius: 60px;\n"
-"border-color: #8e13de;")
+                                         "border-width: 6px;\n"
+                                         "border-radius: 60px;\n"
+                                         "border-color: #8e13de;")
         self.buttons_frame.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.buttons_frame.setFrameShadow(QtWidgets.QFrame.Raised)
         self.buttons_frame.setObjectName("buttons_frame")
@@ -231,41 +231,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.oil_b.setFont(font)
         self.oil_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                 "   \n"
+                                 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                 "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                 "    \n"
+                                 "  \n"
+                                 "    border: 6px solid #4310bd;\n"
+                                 "    border-radius: 15px;\n"
+                                 "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                 "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                 "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                 "    \n"
+                                 " \n"
+                                 "    color: #17022c;\n"
+                                 "    min-width: 10em;\n"
+                                 "    padding: 8px 16px;\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton:hover {\n"
+                                 " \n"
+                                 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                 "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                 "    border-color: #501dcb;\n"
+                                 "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                 "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                 "}\n"
+                                 "\n"
+                                 "QPushButton:pressed {\n"
+                                 "   \n"
+                                 "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                 "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                 "    border-color: #7a0fc0;\n"
+                                 "    padding: 10px 16px 6px 16px;\n"
+                                 "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                 "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                 "}")
         self.oil_b.setObjectName("oil_b")
         self.gridLayout_3.addWidget(self.oil_b, 0, 2, 1, 1)
         self.glow_b = QtWidgets.QPushButton(self.buttons_frame)
@@ -276,41 +276,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.glow_b.setFont(font)
         self.glow_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                  "   \n"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                  "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                  "    \n"
+                                  "  \n"
+                                  "    border: 6px solid #4310bd;\n"
+                                  "    border-radius: 15px;\n"
+                                  "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                  "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                  "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                  "    \n"
+                                  " \n"
+                                  "    color: #17022c;\n"
+                                  "    min-width: 10em;\n"
+                                  "    padding: 8px 16px;\n"
+                                  "}\n"
+                                  "\n"
+                                  "QPushButton:hover {\n"
+                                  " \n"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                  "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                  "    border-color: #501dcb;\n"
+                                  "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                  "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                  "}\n"
+                                  "\n"
+                                  "QPushButton:pressed {\n"
+                                  "   \n"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                  "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                  "    border-color: #7a0fc0;\n"
+                                  "    padding: 10px 16px 6px 16px;\n"
+                                  "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                  "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                  "}")
         self.glow_b.setObjectName("glow_b")
         self.gridLayout_3.addWidget(self.glow_b, 1, 2, 1, 1)
         self.vintage_b = QtWidgets.QPushButton(self.buttons_frame)
@@ -321,41 +321,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.vintage_b.setFont(font)
         self.vintage_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                     "   \n"
+                                     "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                     "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                     "    \n"
+                                     "  \n"
+                                     "    border: 6px solid #4310bd;\n"
+                                     "    border-radius: 15px;\n"
+                                     "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                     "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                     "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                     "    \n"
+                                     " \n"
+                                     "    color: #17022c;\n"
+                                     "    min-width: 10em;\n"
+                                     "    padding: 8px 16px;\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:hover {\n"
+                                     " \n"
+                                     "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                     "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                     "    border-color: #501dcb;\n"
+                                     "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                     "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                     "}\n"
+                                     "\n"
+                                     "QPushButton:pressed {\n"
+                                     "   \n"
+                                     "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                     "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                     "    border-color: #7a0fc0;\n"
+                                     "    padding: 10px 16px 6px 16px;\n"
+                                     "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                     "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                     "}")
         self.vintage_b.setObjectName("vintage_b")
         self.gridLayout_3.addWidget(self.vintage_b, 3, 2, 1, 1)
         self.Blur_b = QtWidgets.QPushButton(self.buttons_frame)
@@ -366,41 +366,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.Blur_b.setFont(font)
         self.Blur_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                  "   \n"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                  "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                  "    \n"
+                                  "  \n"
+                                  "    border: 6px solid #4310bd;\n"
+                                  "    border-radius: 15px;\n"
+                                  "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                  "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                  "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                  "    \n"
+                                  " \n"
+                                  "    color: #17022c;\n"
+                                  "    min-width: 10em;\n"
+                                  "    padding: 8px 16px;\n"
+                                  "}\n"
+                                  "\n"
+                                  "QPushButton:hover {\n"
+                                  " \n"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                  "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                  "    border-color: #501dcb;\n"
+                                  "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                  "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                  "}\n"
+                                  "\n"
+                                  "QPushButton:pressed {\n"
+                                  "   \n"
+                                  "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                  "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                  "    border-color: #7a0fc0;\n"
+                                  "    padding: 10px 16px 6px 16px;\n"
+                                  "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                  "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                  "}")
         self.Blur_b.setObjectName("Blur_b")
         self.gridLayout_3.addWidget(self.Blur_b, 6, 2, 1, 1)
         self.gray_scale_b = QtWidgets.QPushButton(self.buttons_frame)
@@ -411,41 +411,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.gray_scale_b.setFont(font)
         self.gray_scale_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                        "   \n"
+                                        "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                        "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                        "    \n"
+                                        "  \n"
+                                        "    border: 6px solid #4310bd;\n"
+                                        "    border-radius: 15px;\n"
+                                        "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                        "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                        "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                        "    \n"
+                                        " \n"
+                                        "    color: #17022c;\n"
+                                        "    min-width: 10em;\n"
+                                        "    padding: 8px 16px;\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:hover {\n"
+                                        " \n"
+                                        "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                        "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                        "    border-color: #501dcb;\n"
+                                        "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                        "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                        "}\n"
+                                        "\n"
+                                        "QPushButton:pressed {\n"
+                                        "   \n"
+                                        "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                        "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                        "    border-color: #7a0fc0;\n"
+                                        "    padding: 10px 16px 6px 16px;\n"
+                                        "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                        "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                        "}")
         self.gray_scale_b.setObjectName("gray_scale_b")
         self.gridLayout_3.addWidget(self.gray_scale_b, 5, 2, 1, 1)
         self.negate_b = QtWidgets.QPushButton(self.buttons_frame)
@@ -456,41 +456,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.negate_b.setFont(font)
         self.negate_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                    "   \n"
+                                    "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                    "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                    "    \n"
+                                    "  \n"
+                                    "    border: 6px solid #4310bd;\n"
+                                    "    border-radius: 15px;\n"
+                                    "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                    "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                    "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                    "    \n"
+                                    " \n"
+                                    "    color: #17022c;\n"
+                                    "    min-width: 10em;\n"
+                                    "    padding: 8px 16px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover {\n"
+                                    " \n"
+                                    "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                    "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                    "    border-color: #501dcb;\n"
+                                    "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                    "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:pressed {\n"
+                                    "   \n"
+                                    "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                    "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                    "    border-color: #7a0fc0;\n"
+                                    "    padding: 10px 16px 6px 16px;\n"
+                                    "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                    "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                    "}")
         self.negate_b.setObjectName("negate_b")
         self.gridLayout_3.addWidget(self.negate_b, 4, 2, 1, 1)
         self.mosaic_b = QtWidgets.QPushButton(self.buttons_frame)
@@ -501,41 +501,41 @@ class Ui_MainWindow(object):
         font.setWeight(75)
         self.mosaic_b.setFont(font)
         self.mosaic_b.setStyleSheet("QPushButton {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #790cea, stop:1 #4d0cea);\n"
-"    \n"
-"  \n"
-"    border: 6px solid #4310bd;\n"
-"    border-radius: 15px;\n"
-"    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
-"    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
-"                0 4px 8px rgba(0, 0, 0, 0.4);\n"
-"    \n"
-" \n"
-"    color: #17022c;\n"
-"    min-width: 10em;\n"
-"    padding: 8px 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-" \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #7f23ef, stop:1 #0303f1);\n"
-"    border-color: #501dcb;\n"
-"    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
-"                0 6px 12px rgba(0, 0, 0, 0.5);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"   \n"
-"    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
-"                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
-"    border-color: #7a0fc0;\n"
-"    padding: 10px 16px 6px 16px;\n"
-"    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
-"                0 2px 4px rgba(0, 0, 0, 0.3);\n"
-"}")
+                                    "   \n"
+                                    "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                    "                                stop:0 #790cea, stop:1 #4d0cea);\n"
+                                    "    \n"
+                                    "  \n"
+                                    "    border: 6px solid #4310bd;\n"
+                                    "    border-radius: 15px;\n"
+                                    "    outline: 2px solid rgba(255, 255, 255, 0.4);\n"
+                                    "    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6), \n"
+                                    "                0 4px 8px rgba(0, 0, 0, 0.4);\n"
+                                    "    \n"
+                                    " \n"
+                                    "    color: #17022c;\n"
+                                    "    min-width: 10em;\n"
+                                    "    padding: 8px 16px;\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:hover {\n"
+                                    " \n"
+                                    "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                    "                                stop:0 #7f23ef, stop:1 #0303f1);\n"
+                                    "    border-color: #501dcb;\n"
+                                    "    box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.8), \n"
+                                    "                0 6px 12px rgba(0, 0, 0, 0.5);\n"
+                                    "}\n"
+                                    "\n"
+                                    "QPushButton:pressed {\n"
+                                    "   \n"
+                                    "    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+                                    "                                stop:0 #9b1fe0, stop:1 #7e0dc7);\n"
+                                    "    border-color: #7a0fc0;\n"
+                                    "    padding: 10px 16px 6px 16px;\n"
+                                    "    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.9), \n"
+                                    "                0 2px 4px rgba(0, 0, 0, 0.3);\n"
+                                    "}")
         self.mosaic_b.setObjectName("mosaic_b")
         self.gridLayout_3.addWidget(self.mosaic_b, 2, 2, 1, 1)
         self.main_layout.addWidget(self.buttons_frame, 2, 1, 8, 1)
@@ -554,7 +554,8 @@ class Ui_MainWindow(object):
         self.image_i.setText(_translate("MainWindow", "a image"))
         self.dir_i.setText(_translate("MainWindow", "a directory"))
         self.Input_Label.setText(_translate("MainWindow", "Input"))
-        self.VISUAL_PHOTO.setText(_translate("MainWindow", "                    VISUAL PHOTO"))
+        self.VISUAL_PHOTO.setText(_translate(
+            "MainWindow", "                    VISUAL PHOTO"))
         self.oil_b.setText(_translate("MainWindow", "Oil Painting"))
         self.glow_b.setText(_translate("MainWindow", "Glow"))
         self.vintage_b.setText(_translate("MainWindow", "Vintage"))
@@ -562,5 +563,5 @@ class Ui_MainWindow(object):
         self.gray_scale_b.setText(_translate("MainWindow", "Gray Scale"))
         self.negate_b.setText(_translate("MainWindow", "Negate"))
         self.mosaic_b.setText(_translate("MainWindow", "Mosaic"))
-        
+
         MainWindow.show()
