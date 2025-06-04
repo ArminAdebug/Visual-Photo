@@ -119,13 +119,10 @@ class Ui_MainWindow(object):
         self.image_fream_i.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.image_fream_i.setFrameShadow(QtWidgets.QFrame.Raised)
         self.image_fream_i.setObjectName("image_fream_i")
+        
         self.image_i = QtWidgets.QRadioButton(self.image_fream_i)
         self.image_i.setGeometry(QtCore.QRect(10, 10, 98, 24))
-        
-
-        
         self.image_i.setFont(font)
-        self.image_i.setStyleSheet("color: #17022c;")
         self.image_i.setObjectName("image_i")
         
         self.dir_fream_i = QtWidgets.QFrame(self.import_setting_fream)
@@ -146,7 +143,6 @@ class Ui_MainWindow(object):
         self.import_group.addButton(self.dir_i)
         
         self.dir_i.setFont(font)
-        self.dir_i.setStyleSheet("color: #17022c;")
         self.dir_i.setObjectName("dir_i")
         
         self.main_layout.addWidget(self.import_setting_fream, 4, 4, 2, 2)

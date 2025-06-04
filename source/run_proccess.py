@@ -14,7 +14,6 @@ def basic_msgbox(text, title="error"):
 
 
 class RunEffect:
-
     def __call__(self, effect_name):
         match effect_name:
             case "gray_scale":
@@ -33,4 +32,3 @@ class RunEffect:
                 pass
             case _:
                 basic_msgbox("effect name unavailable.")
-

@@ -10,7 +10,7 @@ from PyQt5.QtWidgets import QMainWindow
 from .window_ui import Ui_MainWindow
 
 
-desktop = Path.home() / 'Desktop'
+desktop = str(Path.home() / "Desktop")
 
 empty_data = {
     "mode": "file",
@@ -20,14 +20,13 @@ json_target_path = Path(r"data\TargetPath.json").absolute()
 save_to_json(empty_data, json_target_path)
 
 
-
 class DisplayManage:
     def __init__(self):
         super().__init__()
         self.window = QMainWindow()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
-        
+
         self.run_effect = RunEffect()
         self.path_imported = False
         self.effect_selected = False
@@ -50,21 +49,23 @@ class DisplayManage:
 
         self.import_button = self.ui.import_button
         self.import_button.clicked.connect(self.get_file)
-        
+
         self.image_radiobutton = self.ui.image_i
         self.dir_radiobutton = self.ui.dir_i
         self.image_radiobutton.setChecked(True)
-        
-        self.image_radiobutton = self.ui.image_i.toggled.connect(lambda: self.change_mode("file"))
-        self.dir_radiobutton = self.ui.dir_i.toggled.connect(lambda: self.change_mode("directory"))
-        
-        self.update_export()        
+
+        self.image_radiobutton = self.ui.image_i.toggled.connect(
+            lambda: self.change_mode("file"))
+        self.dir_radiobutton = self.ui.dir_i.toggled.connect(
+            lambda: self.change_mode("directory"))
+
+        self.update_export()
         self.ui.retranslateUi(self.window)
 
     def update_open_mode(self, mode):
         pass
 
-    def update_export(self):      
+    def update_export(self):
         if self.path_imported and self.effect_selected:
             self.export_button.setEnabled(True)
 
@@ -84,25 +85,81 @@ class DisplayManage:
 
     def get_file(self):
         path = self.open_dialog(self.window)
-
+        print("imported")
         if path:
+            print(str(Path(path).parent))
+            
             self.path_imported = True
             self.update_export()
+            user_data_path = Path(r"user_data\user_data.json").absolute()
+            user_data = load_from_json(user_data_path)
+            
+            
+            if self.open_mode == "file":
+                updated_user_data = {
+                    "last_file": str(Path(path).parent),
+                    "last_dir": user_data["last_dir"]
+                }
+                
+            else:
+                updated_user_data = {
+                    "last_file": user_data["last_file"],
+                    "last_dir": path
+                }
+
+            save_to_json(updated_user_data, user_data_path)
+                
             saveDict = {"mode": self.open_mode, "path": path}
             save_to_json(saveDict, json_target_path)
 
     def open_dialog(self, parent):
+        user_data_path = Path(r"user_data\user_data.json").absolute()
+
+        user_data = load_from_json(user_data_path)
 
         if self.open_mode == "file":
+            if Path(user_data["last_file"]) == desktop:
+                open_path = desktop
+                
+            elif check_path(user_data["last_file"]):
+                open_path = user_data["last_file"]
+                
+            else:
+                open_path = desktop
+
+                fixed_user_data = {
+                    "last_file": desktop,
+                    "last_dir": user_data["last_dir"]
+                }
+
+                save_to_json(fixed_user_data, user_data_path)
+
             filter_text = f"Images ({" *" + " *".join(available_types)});;All Files (*)"
 
-            dialog = QFileDialog(parent, filter=filter_text)
+            dialog = QFileDialog(parent, directory=open_path,filter=filter_text)
             dialog.setFileMode(QFileDialog.ExistingFile)
 
             dialog.setWindowTitle("select file")
 
         elif self.open_mode == "directory":
-            dialog = QFileDialog(parent)
+            if Path(user_data["last_dir"]) == desktop:
+                open_path = desktop
+                
+            elif check_path(user_data["last_dir"]):
+                open_path = user_data["last_dir"]
+                
+            else:
+                open_path = desktop
+
+                fixed_user_data = {
+                    "last_file": user_data["last_file"],
+                    "last_dir": desktop
+                }
+
+                save_to_json(fixed_user_data, user_data_path)
+                
+                
+            dialog = QFileDialog(parent, directory=open_path)
 
             dialog.setFileMode(QFileDialog.Directory)
 
@@ -116,3 +173,9 @@ class DisplayManage:
             return dialog.selectedFiles()[0]
 
         return ""
+
+
+def check_path(path):
+    if os.access(path, os.R_OK) and os.access(path, os.F_OK):
+        return True
+    return False
