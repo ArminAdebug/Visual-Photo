@@ -9,7 +9,6 @@ from PyQt5.QtWidgets import QMainWindow
 
 from .window_ui import Ui_MainWindow
 
-
 desktop = str(Path.home() / "Desktop")
 
 empty_data = {
@@ -88,19 +87,18 @@ class DisplayManage:
         print("imported")
         if path:
             print(str(Path(path).parent))
-            
+
             self.path_imported = True
             self.update_export()
             user_data_path = Path(r"user_data\user_data.json").absolute()
             user_data = load_from_json(user_data_path)
-            
-            
+
             if self.open_mode == "file":
                 updated_user_data = {
                     "last_file": str(Path(path).parent),
                     "last_dir": user_data["last_dir"]
                 }
-                
+
             else:
                 updated_user_data = {
                     "last_file": user_data["last_file"],
@@ -108,7 +106,7 @@ class DisplayManage:
                 }
 
             save_to_json(updated_user_data, user_data_path)
-                
+
             saveDict = {"mode": self.open_mode, "path": path}
             save_to_json(saveDict, json_target_path)
 
@@ -120,10 +118,10 @@ class DisplayManage:
         if self.open_mode == "file":
             if Path(user_data["last_file"]) == desktop:
                 open_path = desktop
-                
+
             elif check_path(user_data["last_file"]):
                 open_path = user_data["last_file"]
-                
+
             else:
                 open_path = desktop
 
@@ -136,7 +134,8 @@ class DisplayManage:
 
             filter_text = f"Images ({" *" + " *".join(available_types)});;All Files (*)"
 
-            dialog = QFileDialog(parent, directory=open_path,filter=filter_text)
+            dialog = QFileDialog(
+                parent, directory=open_path, filter=filter_text)
             dialog.setFileMode(QFileDialog.ExistingFile)
 
             dialog.setWindowTitle("select file")
@@ -144,10 +143,10 @@ class DisplayManage:
         elif self.open_mode == "directory":
             if Path(user_data["last_dir"]) == desktop:
                 open_path = desktop
-                
+
             elif check_path(user_data["last_dir"]):
                 open_path = user_data["last_dir"]
-                
+
             else:
                 open_path = desktop
 
@@ -157,8 +156,7 @@ class DisplayManage:
                 }
 
                 save_to_json(fixed_user_data, user_data_path)
-                
-                
+
             dialog = QFileDialog(parent, directory=open_path)
 
             dialog.setFileMode(QFileDialog.Directory)

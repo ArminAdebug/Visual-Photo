@@ -1,0 +1,16 @@
+error code - error - dangerlvl
+
+-3 - effect did not sussecfully run - 5
+-2 - dev syntax error - 5
+-1 - dev path is not exists - 5
+______________________________________________________________________
+
+1 - important file Not Found - 4
+2 - database error - 3
+3 - null file path selected - 3
+4 - null effect selected - 3
+5 - bad effect selected - 3
+6 - unimportant file Not found - 1
+
+
+
