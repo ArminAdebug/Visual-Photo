@@ -35,7 +35,7 @@ if __name__ == "__main__":
 
             if state_run.returncode > 0:
                 basic_msgbox(
-                    "core.py Encountered an execution failure.", "Error")
+                    "core.py Encountered an execution failure!\n please update to stable version.", "Error")
 
         except subprocess.CalledProcessError as e:
             print(f"error, masage: {e.stderr}")

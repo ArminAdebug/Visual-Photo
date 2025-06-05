@@ -15,7 +15,7 @@ import ctypes
 def main():
     app = QApplication(sys.argv)
     window = DisplayManage()
-
+    
     sys.exit(app.exec_())
 
 

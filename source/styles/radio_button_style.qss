@@ -1,0 +1,46 @@
+
+QRadioButton {
+    color: #17022c;
+    font-family: "Mitra";
+    font-size: 12px;
+    font-weight: bold;
+    spacing: 10px;
+    padding: 8px 5px;
+}
+QRadioButton::indicator {
+    width: 24px;
+    height: 24px;
+    border: 2px solid #8e13de;
+    border-radius: 12px;
+    background-color: #1E1E1E;
+}
+
+QRadioButton::indicator:hover {
+    border: 2px solid #a822ff;
+    background-color: #2a2a2a;
+}
+
+QRadioButton::indicator:checked {
+    border: 2px solid #8e13de;
+    background-color: #a822ff;
+    background-image: radial-gradient(
+        circle at center,
+        #d36bff 30%,
+        #a822ff 70%
+    );
+    box-shadow: 0 0 8px rgba(168, 34, 255, 0.8);
+}
+
+QRadioButton:checked {
+    color: #1f043b;
+    font-weight: bold;
+}
+
+QRadioButton:disabled {
+    color: #666666;
+}
+
+QRadioButton::indicator:disabled {
+    border: 2px solid #444444;
+    background-color: #2D2D2D;
+}
