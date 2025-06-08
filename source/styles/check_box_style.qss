@@ -1,6 +1,6 @@
 
 QCheckBox, QRadioButton {
-    color: #E0E0E0;
+    color: #17022c;
     spacing: 8px;
 }
 

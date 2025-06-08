@@ -1,4 +1,4 @@
-# from .effect.available_effect import available_effects
+#from .effect.available_effect import available_effects
 import ctypes
 
 from .effect.photo_blur import blur

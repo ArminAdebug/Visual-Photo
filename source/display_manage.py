@@ -7,16 +7,26 @@ from .file_manage.getImgpaths import available_types
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWidgets import QMainWindow
 
+from PyQt5.QtCore import Qt
+
 from .window_ui import Ui_MainWindow
 
 desktop = str(Path.home() / "Desktop")
 
-empty_data = {
-    "mode": "file",
+empty_data1 = {
     "path": ""
 }
-json_target_path = Path(r"data\TargetPath.json").absolute()
-save_to_json(empty_data, json_target_path)
+
+empty_data2 = {
+    "mode": "file",
+    "copy": True
+}
+
+
+json_target_path = Path(r"data\export_data\target_path.json").absolute()
+json_mode_path = Path(r"data\export_data\mode.json").absolute()
+save_to_json(empty_data1, json_target_path)
+save_to_json(empty_data2, json_mode_path)
 
 
 class DisplayManage:
@@ -45,6 +55,9 @@ class DisplayManage:
         self.ui.oil_b.clicked.connect(lambda: self.set_effect("oil"))
 
         self.open_mode = "file"
+        self.copy = True
+        
+        self.ui.copy_files_check.stateChanged.connect(self.update_copy_mode)
 
         self.import_button = self.ui.import_button
         self.import_button.clicked.connect(self.get_file)
@@ -61,8 +74,13 @@ class DisplayManage:
         self.update_export()
         self.ui.retranslateUi(self.window)
 
-    def update_open_mode(self, mode):
-        pass
+    def update_copy_mode(self, state):
+        if state == Qt.Checked:
+            self.copy = True
+        else:
+            self.copy = False
+            
+        print(self.copy)
 
     def update_export(self):
         if self.path_imported and self.effect_selected:
@@ -77,6 +95,14 @@ class DisplayManage:
         self.update_export()
 
     def effect(self):
+        print("start")
+        mode_dict = {
+            "mode": self.open_mode,
+            "copy": self.copy
+        }
+        
+        save_to_json(mode_dict, json_mode_path)
+        print("end")
         self.run_effect(self.current_effect)
 
     def change_mode(self, mode):
@@ -84,9 +110,8 @@ class DisplayManage:
 
     def get_file(self):
         path = self.open_dialog(self.window)
-        print("imported")
+
         if path:
-            print(str(Path(path).parent))
 
             self.path_imported = True
             self.update_export()
@@ -107,8 +132,9 @@ class DisplayManage:
 
             save_to_json(updated_user_data, user_data_path)
 
-            saveDict = {"mode": self.open_mode, "path": path}
+            saveDict = {"path": path}
             save_to_json(saveDict, json_target_path)
+
 
     def open_dialog(self, parent):
         user_data_path = Path(r"user_data\user_data.json").absolute()

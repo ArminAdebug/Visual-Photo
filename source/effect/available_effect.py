@@ -3,12 +3,12 @@ import os
 from pathlib import Path
 import importlib.util
 
-from photo_blur import blur
-from photo_glow import glow
-from photo_edge import edge
-from photo_gray_scale import gray_scale
-from photo_negate import negate
-from photo_vintage import vintage
+from .photo_blur import blur
+from .photo_glow import glow
+from .photo_edge import edge
+from .photo_gray_scale import gray_scale
+from .photo_negate import negate
+from .photo_vintage import vintage
 
 def _exists(path):
     exs = os.path.exists(path)
