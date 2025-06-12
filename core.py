@@ -4,27 +4,40 @@ import sys
 from pathlib import Path
 import ctypes
 
-from source.data_forge import data_base_manage
+
+from source.handling_error import log_error 
 
 # ctypes.windll.shell32.ShellExecuteW(
 #    None, "runas", "python", str(Path(__file__).parent), None, 1)
 
-# load error logs and tell problems
 
+# show filtered error during week
+def preflight_checks(manager : log_error.ErrorManager):
+    error_list = manager.shows()
 
-def warning():
-    db_path = Path(r"data\data_bases\error_log.db").absolute()
-    error_db = data_base_manage.DataBaseManager(db_path, {"table name":"errorlog", "subject":"errorlog"})
+    manager.log(6)
     
-    error_db.write(*["unimportant file Not found", 6, 1])
-
+    print(error_list)
 
 def main():
-    warning()
+    e_manager = log_error.ErrorManager(__file__)
+    
+    preflight_checks(e_manager)
+    
     app = QApplication(sys.argv)
-    window = DisplayManage()
-
-    sys.exit(app.exec_())
+    
+    try:
+        window = DisplayManage()
+    
+        if app.exec_() == 0:
+            e_manager.finish()
+            sys.exit()
+        
+    except Exception as e:
+        print(e)
+        
+    finally:
+        e_manager.finish()
 
 
 if __name__ == "__main__":
