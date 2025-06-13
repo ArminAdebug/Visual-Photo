@@ -7,38 +7,61 @@ class ErrorDataBase:
     def __init__(self, data_base_path):
         self.connection = sqlite3.connect(data_base_path)
         self.cursor = self.connection.cursor()
-        
+
         self.cursor.execute(F"""CREATE TABLE IF NOT EXISTS errorlog (
+            errorid INTEGER PRIMARY KEY,
             error TEXT,
-            errorid INTEGET PRIMSRY KEY,
-            dangerlvl INTEGER NOT NULL,
+            dangerlvl INTEGER,
             date TEXT DEFAULT CURRENT_TIMESTAMP,
-            deley DEFAULT 0
+            delay INTEGER DEFAULT 0
             )""")
         
-        self.connection.commit()
+        self.cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_errorid ON errorlog(errorid)")
         
-    def add(self, data : dict):
+        self.connection.commit()
 
+    def add(self, data: dict):
+        errorid = data["errorid"]
+        error = data["error"]
+        dangerlvl = data["dangerlvl"]
+        
         for i in range(10):
-            print(i)
-            try:    
-                self.cursor.execute(f"INSERT INTO errorlog {(*data.keys(),)} VALUES (?, ?, ?)", [*data.values()])
+            print(i + 1, end=" . ")
+            try:
+                self.cursor.execute(
+                    f"""INSERT INTO errorlog (errorid, error, dangerlvl) VALUES (?, ?, ?)
+                    ON CONFLICT(errorid) DO UPDATE SET date = CURRENT_TIMESTAMP
+                    """, (errorid, error, dangerlvl))
 
                 self.connection.commit()
             except sqlite3.Error as e:
+                self.connection.rollback()
+                
                 if i == 9:
+                    print() 
                     print(e)
-            
+
             else:
                 break
+           
         else:
             # create critical file clue
             with open(Path(r"source\handling_error\c_error").absolute(), "w") as error_file:
                 pass
-            
-    def read(self, where): 
+
+    def delete(self, errorid : int):
+        self.cursor.execute("delete from errorlog where errorid = ?", (errorid, ))
+
+        self.connection.commit()
+
+    def delete_timeup(self):
+        print(datetime.now())
+        self.cursor.execute("delete from errorlog where ((julianday(CURRENT_TIMESTAMP) - julianday(date))) * 24 * 60 > 2")
+
+        self.connection.commit()
+
+    def read(self, where):
         pass
-  
+
     def search(self, where):
         pass

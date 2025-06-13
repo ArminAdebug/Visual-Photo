@@ -10,12 +10,11 @@ from source.handling_error import log_error
 # ctypes.windll.shell32.ShellExecuteW(
 #    None, "runas", "python", str(Path(__file__).parent), None, 1)
 
-
 # show filtered error during week
 def preflight_checks(manager : log_error.ErrorManager):
     error_list = manager.shows()
 
-    manager.log(6)
+    manager.log(5)
     
     print(error_list)
 

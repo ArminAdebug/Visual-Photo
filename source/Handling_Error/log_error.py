@@ -1,6 +1,5 @@
 from ..tool.data_base_manage import ErrorDataBase
 from pathlib import Path
-import inspect
 
 from ..file_manage.jsonManager import *
 
@@ -18,11 +17,13 @@ class ErrorManager:
 
         self.db_manager = ErrorDataBase(self.db_path)
         
+        self.update()
+        
     def log(self, error_code):
         error_log_data = next((e for e in error_datas if e.get("errorid") == error_code), None)
          
         if not error_log_data or error_code == 10:
-            self.db_manager.add({"error":f"unknown error code [{self.module}]", "errorid": 10, "dangerlvl":2})
+            self.db_manager.add({"errorid": 10, "error":f"unknown error code [{self.module}]", "dangerlvl":2})
         else:
             self.db_manager.add(error_log_data)
         
@@ -32,6 +33,9 @@ class ErrorManager:
 
     def _filter_errors(self, data, mode):
         pass
+
+    def update(self):
+        self.db_manager.delete_timeup()
 
     def update_show(self, showed_errors: list):
         pass
