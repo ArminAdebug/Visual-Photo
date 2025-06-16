@@ -21,7 +21,7 @@ def style_reader(paths):
                 full_stylesheet = full_stylesheet + f.read()
                     
         except FileNotFoundError:
-            print("not found!")
+            pass
             # TODO: add error handler
     return full_stylesheet
 

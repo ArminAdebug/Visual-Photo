@@ -2,39 +2,39 @@ from source.display_manage import DisplayManage
 from PyQt5.QtWidgets import QApplication
 import sys
 from pathlib import Path
-import ctypes
 
-
-from source.handling_error import log_error 
-
-# ctypes.windll.shell32.ShellExecuteW(
+#import ctypes
+#ctypes.windll.shell32.ShellExecuteW(
 #    None, "runas", "python", str(Path(__file__).parent), None, 1)
 
+from source.handling_error import log_error
+
 # show filtered error during week
-def preflight_checks(manager : log_error.ErrorManager):
+def preflight_checks(manager: log_error.ErrorManager):
     error_list = manager.shows()
 
     manager.log(5)
-    
+
     print(error_list)
+
 
 def main():
     e_manager = log_error.ErrorManager(__file__)
-    
+
     preflight_checks(e_manager)
-    
+
     app = QApplication(sys.argv)
-    
+
     try:
         window = DisplayManage()
-    
+
         if app.exec_() == 0:
             e_manager.finish()
             sys.exit()
-        
+
     except Exception as e:
         print(e)
-        
+
     finally:
         e_manager.finish()
 

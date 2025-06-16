@@ -47,8 +47,7 @@ class DisplayManage:
 
         self.ui.Blur_b.clicked.connect(lambda: self.set_effect("blur"))
         self.ui.glow_b.clicked.connect(lambda: self.set_effect("glow"))
-        self.ui.gray_scale_b.clicked.connect(
-            lambda: self.set_effect("gray_scale"))
+        self.ui.gray_scale_b.clicked.connect(lambda: self.set_effect("gray_scale"))
         self.ui.negate_b.clicked.connect(lambda: self.set_effect("negate"))
         self.ui.vintage_b.clicked.connect(lambda: self.set_effect("vintage"))
         self.ui.mosaic_b.clicked.connect(lambda: self.set_effect("mosaic"))
@@ -79,8 +78,6 @@ class DisplayManage:
             self.copy = True
         else:
             self.copy = False
-            
-        print(self.copy)
 
     def update_export(self):
         if self.path_imported and self.effect_selected:
@@ -95,14 +92,13 @@ class DisplayManage:
         self.update_export()
 
     def effect(self):
-        print("start")
         mode_dict = {
             "mode": self.open_mode,
             "copy": self.copy
         }
         
         save_to_json(mode_dict, json_mode_path)
-        print("end")
+
         self.run_effect(self.current_effect)
 
     def change_mode(self, mode):

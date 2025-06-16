@@ -9,7 +9,7 @@ def basic_msgbox(text, title):
 
 def check_core(path):
     if not os.path.exists(path):
-        print("1")  # TODO: insert with real masage box
+        print("1")  # TODO: insert with real massage box
 
         return False
 

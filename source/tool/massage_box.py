@@ -46,7 +46,6 @@ class MassageBox:
             self.pop_up_window_app.exec_()
 
 
-print("start")
 sample_list = []
 a = MassageBox()
-print("end")
+

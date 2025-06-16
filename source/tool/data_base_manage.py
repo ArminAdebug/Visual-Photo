@@ -46,7 +46,7 @@ class ErrorDataBase:
            
         else:
             # create critical file clue
-            with open(Path(r"source\handling_error\c_error").absolute(), "w") as error_file:
+            with open(Path(r"source\handling_error\DBM_error").absolute(), "w") as error_file:
                 pass
 
     def delete(self, errorid : int):
@@ -55,7 +55,6 @@ class ErrorDataBase:
         self.connection.commit()
 
     def delete_timeup(self):
-        print(datetime.now())
         self.cursor.execute("delete from errorlog where ((julianday(CURRENT_TIMESTAMP) - julianday(date))) * 24 * 60 > 2")
 
         self.connection.commit()

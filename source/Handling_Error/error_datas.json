@@ -12,17 +12,17 @@
     {
         "error": "null file path selected",
         "errorid": 3,
-        "dangerlvl": 3
+        "dangerlvl": 2
     },
     {
         "error": "null effect selected",
         "errorid": 4,
-        "dangerlvl": 3
+        "dangerlvl": 2
     },
     {
         "error": "file Not found",
         "errorid": 5,
-        "dangerlvl": 2
+        "dangerlvl": 3
     },
     {
         "error": "style file not found",
@@ -32,7 +32,7 @@
     {
         "error": "unknown effect selected",
         "errorid": 7,
-        "dangerlvl": 3
+        "dangerlvl": 2
     },
     {
         "error": "not exists path selected",
@@ -45,8 +45,18 @@
         "dangerlvl": 0
     },
     {
-        "error": "unknown error code",
+        "error": "unknown errorid",
         "errorid": 10,
+        "dangerlvl": 0
+    },
+    {
+        "error": "file broken",
+        "errorid": 11,
+        "dangerlvl": 3
+    },
+    {
+        "error": "effect not available",
+        "errorid": 12,
         "dangerlvl": 2
     }
 ]

@@ -1,16 +1,18 @@
 from PIL import Image
-from ..file_manage.getImgpaths import get_directory_files
-from ..file_manage.jsonManager import *
+from source.file_manage.getImgpaths import get_directory_files
+from source.file_manage.jsonManager import *
 from pathlib import Path
 
 
-def gray_scale():
-    jsonTargetPath = Path(r"data\TargetPath.json").absolute()
+def main():
+    target_path = Path(r"data\export_data\target_path.json").absolute()
+    mode_path = Path(r"data\export_data\mode.json").absolute()
 
-    json_data_dict = load_from_json(jsonTargetPath)
-
-    if json_data_dict["mode"] == "directory":
-        for image in get_directory_files(json_data_dict["path"]):
+    target_path = load_from_json(target_path)["path"]
+    export_dict = load_from_json(mode_path)
+    
+    if export_dict["mode"] == "directory":
+        for image in get_directory_files(target_path):
             imagePIL = Image.open(image).convert("L")
 
             savepath = Path.joinpath(
@@ -19,8 +21,8 @@ def gray_scale():
 
             print("image", image.name, "saved!")
 
-    elif json_data_dict["mode"] == "file":
-        image = Path(json_data_dict["path"])
+    elif export_dict["mode"] == "file":
+        image = Path(target_path)
         image1 = Image.open(image).convert("L")
 
         savepath = Path.joinpath(
