@@ -6,18 +6,26 @@ from pathlib import Path
 import random
 
 
+def _save_path(path: Path, copy: bool):
+    if copy:
+        savepath = Path.joinpath(
+            path.parent, path.stem + "_blur" + path.suffix)
+        return savepath
+    return path
+
+
 def main():
     target_path = Path(r"data\export_data\target_path.json").absolute()
     mode_path = Path(r"data\export_data\mode.json").absolute()
 
     target_path = load_from_json(target_path)["path"]
     export_dict = load_from_json(mode_path)
-    
+
     if export_dict["mode"] == "directory":
         for image in get_directory_files(target_path):
-            
+
             imagePIL = Image.open(image)
-            
+
             pixels = imagePIL.load()
 
             for x in range(imagePIL.width):
@@ -25,18 +33,17 @@ def main():
                     rand = random.randint(1, 21)
                     if rand == 1 or rand == 2:
                         pixels[x, y] = (0, 0, 0)
-                        
+
                     elif rand == 3:
                         pixels[x, y] = (255, 255, 255)
-                        
+
                     else:
                         r, g, b = pixels[x, y]
                         intensity = sum((r, g, b)) // 3
 
                         pixels[x, y] = (intensity, round(intensity * 0.5), 0)
 
-            savepath = Path.joinpath(
-                image.parent, image.stem + "_vintage" + image.suffix)
+            savepath = _save_path(image, export_dict["copy"])
             imagePIL.save(savepath)
 
             print("image", image.name, "saved!")
@@ -53,16 +60,15 @@ def main():
                 rand = random.randint(1, 21)
                 if rand == 1 or rand == 2:
                     pixels[x, y] = (0, 0, 0)
-                    
+
                 elif rand == 3:
                     pixels[x, y] = (255, 255, 255)
-                    
+
                 else:
                     r, g, b = pixels[x, y]
                     intensity = sum((r, g, b)) // 3
 
                     pixels[x, y] = (intensity, round(intensity * 0.5), 0)
 
-        savepath = Path.joinpath(
-            image.parent, image.stem + "_vintage" + image.suffix)
+        savepath = _save_path(image, export_dict["copy"])
         imagePIL.save(savepath)

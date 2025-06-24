@@ -59,8 +59,5 @@ class ErrorDataBase:
 
         self.connection.commit()
 
-    def read(self, where):
-        pass
-
-    def search(self, where):
-        pass
+    def get_all(self):
+        pass #self.c

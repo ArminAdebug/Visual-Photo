@@ -3,8 +3,6 @@ import ctypes
 from .file_manage.jsonManager import *
 from pathlib import Path
 
-print(available_effects)
-
 effect_info_path = Path(r"source\effect\effects_info.json").absolute()
 effect_names = load_from_json(effect_info_path)["effects"]
 
@@ -14,7 +12,6 @@ def basic_msgbox(text, title="error"):
 
 class RunEffect:
     def __call__(self, effect_name):
-        print(effect_name, "\n", effect_names)
         if not effect_name:
             # TODO: log error: 4 null effect selected
             pass

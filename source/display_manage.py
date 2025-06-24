@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from .file_manage.jsonManager import *
-from .run_proccess import RunEffect
+from .run_process import RunEffect
 from .file_manage.getImgpaths import available_types
 
 from PyQt5.QtWidgets import QFileDialog
@@ -57,6 +57,7 @@ class DisplayManage:
         self.copy = True
         
         self.ui.copy_files_check.stateChanged.connect(self.update_copy_mode)
+        self.ui.copy_files_check.setChecked(True)
 
         self.import_button = self.ui.import_button
         self.import_button.clicked.connect(self.get_file)
