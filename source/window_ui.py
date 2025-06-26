@@ -11,8 +11,6 @@ from pathlib import Path
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import QCoreApplication
 
-import os
-
 def style_reader(paths):
     full_stylesheet = ""
     for path in paths:
@@ -84,6 +82,7 @@ class Ui_MainWindow(object):
         self.export_button.setObjectName("export_button")
         self.main_layout.addWidget(self.export_button, 9, 4, 1, 2)
         self.copy_files_check = QtWidgets.QCheckBox(self.main_grid_layout)
+        self.copy_files_check.setText("save to new file")
         self.copy_files_check.setStyleSheet("size:20;")
         self.copy_files_check.setObjectName("copy_files_check")
         self.main_layout.addWidget(self.copy_files_check, 8, 4, 1, 1)

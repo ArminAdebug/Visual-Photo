@@ -7,7 +7,7 @@ import cv2
 def _save_path(path: Path, copy: bool):
     if copy:
         savepath = Path.joinpath(
-            path.parent, path.stem + "_blur" + path.suffix)
+            path.parent, path.stem + "_oil" + path.suffix)
         return savepath
     return path
 

@@ -1,0 +1,13 @@
+Pyqt5
+python 3.13
+subprocess
+sys
+os
+ctypes
+pathlib
+pillow (PIL)
+time
+importlib
+json
+sqlite3
+datetime

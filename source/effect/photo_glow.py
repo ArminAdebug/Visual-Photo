@@ -7,7 +7,7 @@ from pathlib import Path
 def _save_path(path: Path, copy: bool):
     if copy:
         savepath = Path.joinpath(
-            path.parent, path.stem + "_blur" + path.suffix)
+            path.parent, path.stem + "_glow" + path.suffix)
         return savepath
     return path
 

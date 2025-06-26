@@ -3,6 +3,7 @@ from pathlib import Path
 from .file_manage.jsonManager import *
 from .run_process import RunEffect
 from .file_manage.getImgpaths import available_types
+from .file_manage.getImgpaths import get_directory_files
 
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWidgets import QMainWindow
@@ -71,6 +72,8 @@ class DisplayManage:
         self.dir_radiobutton = self.ui.dir_i.toggled.connect(
             lambda: self.change_mode("directory"))
 
+        self.num_file_lable = self.ui.num_file_label
+        self.current_path_label = self.ui.path_label
         self.update_export()
         self.ui.retranslateUi(self.window)
 
@@ -93,6 +96,7 @@ class DisplayManage:
         self.update_export()
 
     def effect(self):
+        
         mode_dict = {
             "mode": self.open_mode,
             "copy": self.copy
@@ -109,19 +113,23 @@ class DisplayManage:
         path = self.open_dialog(self.window)
 
         if path:
-
+            self.current_path_label.setText(path)
             self.path_imported = True
             self.update_export()
             user_data_path = Path(r"user_data\user_data.json").absolute()
             user_data = load_from_json(user_data_path)
 
             if self.open_mode == "file":
+                self.num_file_lable.setText("1")
+                
                 updated_user_data = {
                     "last_file": str(Path(path).parent),
                     "last_dir": user_data["last_dir"]
                 }
 
             else:
+                self.num_file_lable.setText(str(len(get_directory_files(path))))
+                
                 updated_user_data = {
                     "last_file": user_data["last_file"],
                     "last_dir": path
