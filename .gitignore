@@ -1,0 +1,182 @@
+# =========================
+# Python
+# =========================
+
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+*.pyd
+*.dll
+
+# Distribution
+build/
+dist/
+downloads/
+develop-eggs/
+eggs/
+.eggs/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+
+# Packaging
+*.egg-info/
+*.egg
+MANIFEST
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+
+# Type checker
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Linter
+.ruff_cache/
+
+# Virtual env
+venv/
+.venv/
+env/
+ENV/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# PyCharm
+.idea/
+
+# =========================
+# VS Code
+# =========================
+
+.vscode/
+.history/
+
+# =========================
+# Bash / Shell
+# =========================
+
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# =========================
+# C / C++
+# =========================
+
+*.o
+*.obj
+*.a
+*.lib
+*.lo
+*.la
+
+*.out
+*.exe
+*.app
+
+*.dSYM/
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+compile_commands.json
+Makefile
+
+# Autotools
+autom4te.cache/
+aclocal.m4
+m4/
+
+# =========================
+# GCC / Clang
+# =========================
+
+*.gcda
+*.gcno
+*.gcov
+
+# =========================
+# PyInstaller
+# =========================
+
+dist/
+build/
+
+*.spec
+
+# =========================
+# Nuitka
+# =========================
+
+*.build/
+*.dist/
+*.onefile-build/
+
+*.bin
+*.cmd
+
+# Nuitka cache
+.nuitka-cache/
+
+# =========================
+# OS Files
+# =========================
+
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =========================
+# Secrets
+# =========================
+
+.env
+.env.*
+*.env
+
+# =========================
+# Coverage
+# =========================
+
+coverage.xml
+nosetests.xml
+
+# =========================
+# Temporary
+# =========================
+
+tmp/
+temp/
+.cache/
+
+# =========================
+# Archives
+# =========================
+
+*.zip
+*.tar
+*.tar.gz
+*.7z
+*.rar

@@ -1,16 +1,31 @@
 from pathlib import Path
 
-from .file_manage.jsonManager import *
-from .run_process import RunEffect
-from .file_manage.getImgpaths import available_types
-from .file_manage.getImgpaths import get_directory_files
-
 from PyQt5.QtWidgets import QFileDialog
 from PyQt5.QtWidgets import QMainWindow
-
 from PyQt5.QtCore import Qt
 
+from .file_manage.jsonManager import *
+from .file_manage.getImgpaths import available_types
+from .file_manage.getImgpaths import get_directory_files
 from .window_ui import Ui_MainWindow
+
+import source.effect.photo_blur
+import source.effect.photo_glow
+import source.effect.photo_gray_scale
+import source.effect.photo_mosaic
+import source.effect.photo_negate
+import source.effect.photo_oil
+import source.effect.photo_vintage
+
+effects = {
+    "blur": source.effect.photo_blur.main,
+    "glow": source.effect.photo_glow.main,
+    "gray_scale": source.effect.photo_gray_scale.main,
+    "negate": source.effect.photo_negate.main,
+    "vintage": source.effect.photo_vintage.main,
+    "mosaic": source.effect.photo_mosaic.main,
+    "oil": source.effect.photo_oil.main,
+}
 
 desktop = str(Path.home() / "Desktop")
 
@@ -26,9 +41,14 @@ empty_data2 = {
 
 json_target_path = Path(r"data\export_data\target_path.json").absolute()
 json_mode_path = Path(r"data\export_data\mode.json").absolute()
+user_data_path = Path(r"user_data\user_data.json").absolute()
+
 save_to_json(empty_data1, json_target_path)
 save_to_json(empty_data2, json_mode_path)
 
+user_empty_data = {"last_file": "", "last_dir": ""}
+if not os.path.exists(user_data_path):
+    save_to_json(user_empty_data, user_data_path)
 
 class DisplayManage:
     def __init__(self):
@@ -37,7 +57,6 @@ class DisplayManage:
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self.window)
 
-        self.run_effect = RunEffect()
         self.path_imported = False
         self.effect_selected = False
 
@@ -56,7 +75,7 @@ class DisplayManage:
 
         self.open_mode = "file"
         self.copy = True
-        
+
         self.ui.copy_files_check.stateChanged.connect(self.update_copy_mode)
         self.ui.copy_files_check.setChecked(True)
 
@@ -96,15 +115,20 @@ class DisplayManage:
         self.update_export()
 
     def effect(self):
-        
+
         mode_dict = {
             "mode": self.open_mode,
             "copy": self.copy
         }
-        
+
         save_to_json(mode_dict, json_mode_path)
 
-        self.run_effect(self.current_effect)
+        effect = effects.get(self.current_effect)
+
+        if effect is None:
+            print("unknown effect")
+
+        effect()
 
     def change_mode(self, mode):
         self.open_mode = mode
@@ -116,12 +140,12 @@ class DisplayManage:
             self.current_path_label.setText(path)
             self.path_imported = True
             self.update_export()
-            user_data_path = Path(r"user_data\user_data.json").absolute()
+
             user_data = load_from_json(user_data_path)
 
             if self.open_mode == "file":
                 self.num_file_lable.setText("1")
-                
+
                 updated_user_data = {
                     "last_file": str(Path(path).parent),
                     "last_dir": user_data["last_dir"]
@@ -129,7 +153,7 @@ class DisplayManage:
 
             else:
                 self.num_file_lable.setText(str(len(get_directory_files(path))))
-                
+
                 updated_user_data = {
                     "last_file": user_data["last_file"],
                     "last_dir": path

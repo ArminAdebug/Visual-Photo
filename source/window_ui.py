@@ -14,10 +14,10 @@ from PyQt5.QtCore import QCoreApplication
 def style_reader(paths):
     full_stylesheet = ""
     for path in paths:
-        try:  
+        try:
             with open(Path(rf"source/styles/{path}").absolute(), "r") as f:
                 full_stylesheet = full_stylesheet + f.read()
-                    
+
         except FileNotFoundError:
             pass
             # TODO: add error handler
@@ -29,7 +29,7 @@ style_paths = ["check_box_style.qss", "radio_button_style.qss", "combo_box_style
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         stylesheet = style_reader(style_paths)
-        
+
         MainWindow.setStyleSheet(stylesheet)
 
         MainWindow.setWindowTitle("Visual Photo")
@@ -63,26 +63,26 @@ class Ui_MainWindow(object):
         self.export_button.setFont(font)
 
         self.export_button.setStyleSheet("""
-            QPushButton{ 
+            QPushButton{
                 background-color: #a822ff;
                 border-style: outset;
                 border-width: 6px;
                 border-radius: 15px;
                 border-color: #8e13de;
                 min-width: 10em;
-                padding: 5px; 
+                padding: 5px;
                 color: #17022c;
             }
             QPushButton:hover { background-color: #901ddb; border-color: #7a0ecc;}
-            QPushButton:pressed { background-color: #450e69; border-color: #7a0ecc;}                                    
+            QPushButton:pressed { background-color: #450e69; border-color: #7a0ecc;}
             QPushButton:disabled {background-color: #382345; border-color: #271c2e;}
-                                            
+
         """)
 
         self.export_button.setObjectName("export_button")
         self.main_layout.addWidget(self.export_button, 9, 4, 1, 2)
         self.copy_files_check = QtWidgets.QCheckBox(self.main_grid_layout)
-        self.copy_files_check.setText("save to new file")
+        self.copy_files_check.setText("copy new files")
         self.copy_files_check.setStyleSheet("size:20;")
         self.copy_files_check.setObjectName("copy_files_check")
         self.main_layout.addWidget(self.copy_files_check, 8, 4, 1, 1)
@@ -91,20 +91,20 @@ class Ui_MainWindow(object):
         self.import_button.setFont(font)
 
         self.import_button.setStyleSheet("""
-            QPushButton{ 
+            QPushButton{
                 background-color: #a822ff;
                 border-style: outset;
                 border-width: 6px;
                 border-radius: 15px;
                 border-color: #8e13de;
                 min-width: 10em;
-                padding: 5px; 
+                padding: 5px;
                 color: #17022c;
             }
             QPushButton:hover { background-color: #901ddb; border-color: #7a0ecc;}
-            QPushButton:pressed { background-color: #450e69; border-color: #7a0ecc;}                                    
+            QPushButton:pressed { background-color: #450e69; border-color: #7a0ecc;}
             QPushButton:disabled {background-color: #382345; border-color: #271c2e;}
-                                            
+
         """)
 
         self.import_button.setObjectName("import_button")
@@ -558,7 +558,7 @@ class Ui_MainWindow(object):
 
         MainWindow.setWindowTitle(translator("MainWindow", "Visual Photo"))
         self.export_button.setText(translator("button", "Export"))
-        self.copy_files_check.setText(translator("MainWindow", "CheckBox"))
+        self.copy_files_check.setText(translator("MainWindow", "copy new files"))
         self.import_button.setText(translator("button", "import"))
         self.image_i.setText(translator("radio box", "a image"))
         self.dir_i.setText(translator("radio box", "a directory"))

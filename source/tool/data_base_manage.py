@@ -15,18 +15,17 @@ class ErrorDataBase:
             date TEXT DEFAULT CURRENT_TIMESTAMP,
             delay INTEGER DEFAULT 0
             )""")
-        
+
         self.cursor.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_errorid ON errorlog(errorid)")
-        
+
         self.connection.commit()
 
     def add(self, data: dict):
         errorid = data["errorid"]
         error = data["error"]
         dangerlvl = data["dangerlvl"]
-        
+
         for i in range(10):
-            print(i + 1, end=" . ")
             try:
                 self.cursor.execute(
                     f"""INSERT INTO errorlog (errorid, error, dangerlvl) VALUES (?, ?, ?)
@@ -36,14 +35,9 @@ class ErrorDataBase:
                 self.connection.commit()
             except sqlite3.Error as e:
                 self.connection.rollback()
-                
-                if i == 9:
-                    print() 
-                    print(e)
-
             else:
                 break
-           
+
         else:
             # create critical file clue
             with open(Path(r"source\handling_error\DBM_error").absolute(), "w") as error_file:
