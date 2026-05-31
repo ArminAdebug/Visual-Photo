@@ -1,0 +1,63 @@
+[
+    {
+        "error": "important file Not Found",
+        "errorid": 1,
+        "dangerlvl": 4
+    },
+
+    {
+        "error": "database error",
+        "errorid": 2,
+        "dangerlvl": 3
+    },
+    {
+        "error": "null file path selected",
+        "errorid": 3,
+        "dangerlvl": 2
+    },
+    {
+        "error": "null effect selected",
+        "errorid": 4,
+        "dangerlvl": 2
+    },
+    {
+        "error": "file Not found",
+        "errorid": 5,
+        "dangerlvl": 3
+    },
+    {
+        "error": "style file not found",
+        "errorid": 6,
+        "dangerlvl": 1
+    },
+    {
+        "error": "unknown effect selected",
+        "errorid": 7,
+        "dangerlvl": 2
+    },
+    {
+        "error": "not exists path selected",
+        "errorid": 8,
+        "dangerlvl": 2
+    },
+    {
+        "error": "out access file selected",
+        "errorid": 9,
+        "dangerlvl": 0
+    },
+    {
+        "error": "unknown errorid",
+        "errorid": 10,
+        "dangerlvl": 0
+    },
+    {
+        "error": "file broken",
+        "errorid": 11,
+        "dangerlvl": 3
+    },
+    {
+        "error": "effect not available",
+        "errorid": 12,
+        "dangerlvl": 2
+    }
+]

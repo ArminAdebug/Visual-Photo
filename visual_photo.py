@@ -2,7 +2,7 @@ from source.display_manage import DisplayManage
 from PyQt5.QtWidgets import QApplication
 import sys
 
-from source.handling_error import log_error
+from source.handling_errors import log_error
 
 from source.tool.massage_box import MassageBox
 
